@@ -10,128 +10,111 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
         
         body, html { 
-            margin: 0; padding: 0;
-            font-family: 'Inter', sans-serif; 
+            margin: 0; padding: 0; font-family: 'Inter', sans-serif; 
             background: linear-gradient(135deg, #A978C9, #E9CDCE); 
-            background-attachment: fixed;
-            min-height: 100vh;
+            background-attachment: fixed; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- NEW NAVIGATION STYLE --- */
+        /* --- NAVIGATION --- */
         nav {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr; /* Three equal parts */
-            align-items: center;
-            padding: 15px 5%;
-            position: fixed; /* Keeps nav at top while scrolling */
-            width: 90%; top: 0; z-index: 1000;
-            background: transparent;
+            display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center;
+            padding: 20px 5%; position: fixed; width: 90%; top: 0; z-index: 1000;
         }
 
-        /* Left Side: Hamburger Menu */
-        .menu-trigger {
-            font-size: 20px;
-            cursor: pointer;
-            color: black;
-            justify-self: start;
+        .menu-trigger, .nav-icons { cursor: pointer; color: black; font-size: 20px; }
+        .menu-trigger { justify-self: start; }
+        .nav-logo { justify-self: center; }
+        .nav-logo img { height: 16px; width: auto; }
+        .nav-icons { justify-self: end; display: flex; gap: 20px; }
+
+        /* --- SIDEBARS (Menu, Search, Cart) --- */
+        .sidebar {
+            position: fixed; top: 0; width: 280px; height: 100%;
+            background: white; z-index: 2000; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            padding: 60px 30px; box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        #side-menu { left: -350px; }
+        #side-search { right: -350px; width: 100%; } /* Search covers top */
+        #side-cart { right: -350px; }
+
+        .sidebar.active { left: 0 !important; right: 0 !important; }
+
+        .close-btn { 
+            position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; 
         }
 
-        /* Middle: Centered Logo */
-        .nav-logo {
-            justify-self: center;
-        }
-        .nav-logo img {
-            height: 18px; width: auto;
-        }
-
-        /* Right Side: Search & Cart */
-        .nav-icons {
-            justify-self: end;
-            display: flex;
-            gap: 20px;
-        }
-        .nav-icons i {
-            font-size: 18px;
-            color: black;
-            cursor: pointer;
-        }
-
-        /* Hidden Sidebar Menu (Logic for later) */
-        #side-menu {
-            position: fixed; top: 0; left: -250px; width: 250px; height: 100%;
-            background: white; z-index: 2000; transition: 0.4s; padding: 40px 20px;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        }
-        #side-menu a {
+        .sidebar a, .sidebar h3 {
             display: block; text-decoration: none; color: black;
-            margin-bottom: 25px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 30px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;
         }
 
-        /* Hero & Content Spacing */
+        /* Search Input Style */
+        .search-box {
+            width: 80%; padding: 15px; border: none; border-bottom: 1px solid #ccc;
+            font-size: 18px; outline: none; margin-top: 20px;
+        }
+
+        /* --- CONTENT AREA --- */
         .hero-text {
-            display: flex; flex-direction: column; align-items: center;
-            text-align: center; padding: 140px 20px 60px 20px;
+            text-align: center; padding: 160px 20px 80px 20px;
         }
-        .hero-text h1 { 
-            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
-            margin: 0 0 25px 0; color: black; 
-        }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0 0 20px 0; }
 
         .section-container {
-            position: relative; width: 100%; height: 80vh; 
-            margin-bottom: 120px; display: flex; justify-content: center; align-items: center;
-            overflow: hidden;
+            position: relative; width: 100%; height: 75vh; margin-bottom: 100px;
+            display: flex; justify-content: center; align-items: center; overflow: hidden;
         }
-        .section-container video, .section-container img {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; object-fit: cover; z-index: 1;
+        .section-container img, .section-container video {
+            position: absolute; width: 100%; height: 100%; object-fit: cover;
         }
 
-        .overlay-content {
-            position: relative; z-index: 10; text-align: center; color: white; width: 90%;
-        }
-        .overlay-content h2 {
-            font-family: 'Playfair Display', serif; font-size: 3rem;
-            margin: 0 0 35px 0; text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
-        }
-
+        .overlay-content { position: relative; z-index: 10; text-align: center; color: white; }
+        .overlay-content h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; }
+        
         .mini-btn {
-            display: inline-block; background: transparent; color: white;
-            border: none; text-decoration: none; font-weight: 500;
-            font-size: 13px; text-transform: uppercase; letter-spacing: 4px;
-            border-bottom: 2px solid white; padding-bottom: 8px;
+            color: white; text-decoration: none; font-size: 12px; letter-spacing: 3px;
+            border-bottom: 1px solid white; padding-bottom: 5px; text-transform: uppercase;
         }
 
-        .button-area {
-            display: flex; justify-content: center; padding: 40px 0 150px 0;
-        }
-        .explore-btn { 
-            padding: 22px 70px; background: black; color: white; 
-            text-decoration: none; border-radius: 50px; font-weight: 600; 
-            font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
+        #overlay-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3); z-index: 1500; display: none;
         }
     </style>
 </head>
 <body>
 
-    <div id="side-menu">
+    <div id="overlay-bg" onclick="closeAll()"></div>
+
+    <div id="side-menu" class="sidebar">
+        <span class="close-btn" onclick="closeAll()">&times;</span>
         <a href="about.html">About</a>
-        <a href="shop.html">Shop</a>
+        <a href="shop.html">Shop Clothing</a>
+        <a href="shop.html#perfume">Shop Fragrances</a>
         <a href="contact.html">Contact</a>
     </div>
 
+    <div id="side-search" class="sidebar">
+        <span class="close-btn" onclick="closeAll()">&times;</span>
+        <h3>Search TALISM</h3>
+        <input type="text" class="search-box" placeholder="What are you looking for?">
+    </div>
+
+    <div id="side-cart" class="sidebar">
+        <span class="close-btn" onclick="closeAll()">&times;</span>
+        <h3>Your Shopping Bag</h3>
+        <p style="font-size: 12px; color: #666; margin-top: 40px;">Your bag is currently empty.</p>
+    </div>
+
     <nav>
-        <div class="menu-trigger" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-
-        <a href="index.html" class="nav-logo">
+        <div class="menu-trigger" onclick="openSidebar('side-menu')">
+            <i class="fa-solid fa-bars"></i> </div>
+        <div class="nav-logo">
             <img src="logo2.png" alt="TALISM">
-        </a>
-
+        </div>
         <div class="nav-icons">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-solid fa-magnifying-glass" onclick="openSidebar('side-search')"></i>
+            <i class="fa-solid fa-bag-shopping" onclick="openSidebar('side-cart')"></i>
         </div>
     </nav>
 
@@ -146,24 +129,20 @@
         </video>
         <div class="overlay-content">
             <h2>Stara Clothing</h2>
-            <p>Modern modesty, redefined.</p>
             <a href="shop.html" class="mini-btn">Shop Now</a>
         </div>
     </div>
 
-    <div class="button-area">
-        <a href="shop.html" class="explore-btn">Explore Collections</a>
-    </div>
-
     <script>
-        // Simple function to open/close the menu
-        function toggleMenu() {
-            var menu = document.getElementById("side-menu");
-            if (menu.style.left === "0px") {
-                menu.style.left = "-250px";
-            } else {
-                menu.style.left = "0px";
-            }
+        function openSidebar(id) {
+            document.getElementById(id).classList.add('active');
+            document.getElementById('overlay-bg').style.display = 'block';
+        }
+
+        function closeAll() {
+            const sidebars = document.querySelectorAll('.sidebar');
+            sidebars.forEach(s => s.classList.remove('active'));
+            document.getElementById('overlay-bg').style.display = 'none';
         }
     </script>
 
