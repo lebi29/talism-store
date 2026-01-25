@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,11 +15,12 @@
             background-attachment: fixed; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- 1, 2, 3, 4, 5: FIXED NAVIGATION BAR --- */
+        /* --- 1, 2, 3, 4, 5: NAVIGATION BAR --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
-            background-color: #E9CDCE; /* Pale Sand background */
+            background-color: #E9CDCE; /* Background for navigation bar */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .nav-left, .nav-right { flex: 1; display: flex; align-items: center; }
         .nav-center { flex: 1; display: flex; justify-content: center; }
@@ -27,39 +28,37 @@
         .nav-logo img { height: 16px; width: auto; }
         .icon-btn { cursor: pointer; color: #000; font-size: 18px; }
 
-        /* --- SIDEBARS --- */
-        .sidebar {
-            position: fixed; top: 0; width: 300px; height: 100%;
-            background: #fff; z-index: 3000; transition: 0.4s; padding: 80px 30px;
-        }
+        /* SIDEBARS */
+        .sidebar { position: fixed; top: 0; width: 300px; height: 100%; background: #fff; z-index: 3000; transition: 0.4s; padding: 80px 30px; }
         #menu-sb { left: -350px; }
         #search-sb { right: -350px; width: 100%; }
         #cart-sb { right: -350px; }
         .sidebar.open { left: 0 !important; right: 0 !important; }
         .close-x { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; }
 
-        /* --- 6, 7, 8: HOME PAGE CONTENT --- */
+        /* --- 6, 7, 8: PAGE CONTENT --- */
         .hero-text { text-align: center; padding: 140px 20px 60px 20px; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; }
-        .hero-text p { max-width: 300px; margin: 0 auto; line-height: 1.6; font-size: 0.9rem; }
+        .hero-text p { max-width: 400px; margin: 0 auto; line-height: 1.6; font-size: 0.95rem; }
 
         .section { 
-            position: relative; width: 100%; height: 70vh; margin-bottom: 80px; 
-            display: flex; justify-content: center; align-items: center; 
+            position: relative; width: 100%; height: 75vh; margin-bottom: 60px; 
+            display: flex; justify-content: center; align-items: center; overflow: hidden;
         }
         .section video, .section img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
 
         /* --- 10: WORDS ON IMAGE/VIDEO --- */
         .overlay { position: relative; z-index: 10; text-align: center; color: #fff; }
-        .overlay h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 25px; }
+        .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
+        .overlay p { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
         .shop-btn { color: #fff; text-decoration: none; border-bottom: 1px solid #fff; padding-bottom: 5px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
 
         /* --- 9: EXPLORE BUTTON --- */
         .explore-area { display: flex; justify-content: center; padding: 40px 0 120px 0; }
         .explore-btn { 
-            padding: 18px 50px; background: #000; color: #fff; 
+            padding: 20px 60px; background: #000; color: #fff; 
             text-decoration: none; border-radius: 50px; font-weight: 600; 
-            font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+            font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
         }
 
         #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2500; display: none; }
@@ -69,13 +68,31 @@
 
     <div id="mask" onclick="closeAll()"></div>
 
-    <div id="menu-sb" class="sidebar"><span class="close-x" onclick="closeAll()">&times;</span><a href="#" style="display:block; margin-bottom:20px; text-decoration:none; color:black;">About</a><a href="#" style="text-decoration:none; color:black;">Shop</a></div>
-    <div id="search-sb" class="sidebar"><span class="close-x" onclick="closeAll()">&times;</span><h3>Search</h3><input type="text" style="width:90%; padding:10px; border-bottom:1px solid black; border-top:none; border-left:none; border-right:none; outline:none;"></div>
-    <div id="cart-sb" class="sidebar"><span class="close-x" onclick="closeAll()">&times;</span><h3>Your Bag</h3><p>Empty</p></div>
+    <div id="menu-sb" class="sidebar">
+        <span class="close-x" onclick="closeAll()">&times;</span>
+        <a href="#" style="display:block; margin-bottom:30px; text-decoration:none; color:black; letter-spacing:2px;">ABOUT</a>
+        <a href="#" style="display:block; text-decoration:none; color:black; letter-spacing:2px;">SHOP</a>
+    </div>
+    <div id="search-sb" class="sidebar">
+        <span class="close-x" onclick="closeAll()">&times;</span>
+        <h3>Search</h3>
+        <input type="text" placeholder="Search..." style="width:90%; padding:10px; border:none; border-bottom:1px solid black; outline:none;">
+    </div>
+    <div id="cart-sb" class="sidebar">
+        <span class="close-x" onclick="closeAll()">&times;</span>
+        <h3>Your Bag</h3>
+        <p style="color:#888; margin-top:40px;">Your bag is currently empty.</p>
+    </div>
 
     <nav>
-        <div class="nav-left"><i class="fa-solid fa-bars icon-btn" onclick="openSB('menu-sb')"></i></div>
-        <div class="nav-center"><a href="#" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-left">
+            <i class="fa-solid fa-bars icon-btn" onclick="openSB('menu-sb')"></i>
+        </div>
+        <div class="nav-center">
+            <a href="#" class="nav-logo">
+                <img src="logo2.png" alt="TALISM">
+            </a>
+        </div>
         <div class="nav-right">
             <i class="fa-solid fa-magnifying-glass icon-btn" onclick="openSB('search-sb')"></i>
             <i class="fa-solid fa-bag-shopping icon-btn" onclick="openSB('cart-sb')"></i>
@@ -91,14 +108,16 @@
         <video autoplay loop muted playsinline><source src="stara-video.mp4" type="video/mp4"></video>
         <div class="overlay">
             <h2>Stara Clothing</h2>
+            <p>Modern modesty, redefined.</p>
             <a href="#" class="shop-btn">Shop Now</a>
         </div>
     </div>
 
     <div class="section">
-        <img src="perfume.jpg" alt="Fragrance">
+        <img src="perfume.jpg" alt="Fragrance Collection">
         <div class="overlay">
             <h2>Signature Scents</h2>
+            <p>Long-lasting luxury fragrances.</p>
             <a href="#" class="shop-btn">Shop Now</a>
         </div>
     </div>
@@ -111,6 +130,7 @@
         function openSB(id) { document.getElementById(id).classList.add('open'); document.getElementById('mask').style.display = 'block'; }
         function closeAll() { const sbs = document.querySelectorAll('.sidebar'); sbs.forEach(s => s.classList.remove('open')); document.getElementById('mask').style.display = 'none'; }
     </script>
+
 </body>
 </html>
-     
+ 
