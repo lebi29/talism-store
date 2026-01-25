@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,28 +15,36 @@
             background-attachment: fixed; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- 1, 2, 3, 4, 5: NAVIGATION BAR --- */
+        /* --- 1, 2, 3, 4, 5: FIXED NAVIGATION BAR --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
-            background-color: #E9CDCE; /* Background for navigation bar */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
+            background-color: #E9CDCE; /* Pale Sand background from palette */
+            height: 60px;
         }
+
+        /* Creating three equal zones to force the logo to stay exactly in the center */
         .nav-left, .nav-right { flex: 1; display: flex; align-items: center; }
         .nav-center { flex: 1; display: flex; justify-content: center; }
         .nav-right { justify-content: flex-end; gap: 20px; }
-        .nav-logo img { height: 16px; width: auto; }
-        .icon-btn { cursor: pointer; color: #000; font-size: 18px; }
 
-        /* SIDEBARS */
-        .sidebar { position: fixed; top: 0; width: 300px; height: 100%; background: #fff; z-index: 3000; transition: 0.4s; padding: 80px 30px; }
-        #menu-sb { left: -350px; }
-        #search-sb { right: -350px; width: 100%; }
-        #cart-sb { right: -350px; }
+        .nav-logo img { height: 14px; width: auto; }
+        .icon-btn { cursor: pointer; color: #000; font-size: 18px; background: none; border: none; }
+
+        /* --- SIDEBARS --- */
+        .sidebar {
+            position: fixed; top: 0; width: 300px; height: 100%;
+            background: #fff; z-index: 3000; transition: 0.4s ease; padding: 80px 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+        #menu-sb { left: -350px; } /* Slides from left */
+        #search-sb { right: -350px; width: 100%; } /* Slides from right - Full width for search */
+        #cart-sb { right: -350px; } /* Slides from right */
+
         .sidebar.open { left: 0 !important; right: 0 !important; }
         .close-x { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; }
 
-        /* --- 6, 7, 8: PAGE CONTENT --- */
+        /* --- HOME PAGE CONTENT --- */
         .hero-text { text-align: center; padding: 140px 20px 60px 20px; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; }
         .hero-text p { max-width: 400px; margin: 0 auto; line-height: 1.6; font-size: 0.95rem; }
@@ -47,13 +55,10 @@
         }
         .section video, .section img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- 10: WORDS ON IMAGE/VIDEO --- */
         .overlay { position: relative; z-index: 10; text-align: center; color: #fff; }
-        .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
-        .overlay p { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
+        .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         .shop-btn { color: #fff; text-decoration: none; border-bottom: 1px solid #fff; padding-bottom: 5px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- 9: EXPLORE BUTTON --- */
         .explore-area { display: flex; justify-content: center; padding: 40px 0 120px 0; }
         .explore-btn { 
             padding: 20px 60px; background: #000; color: #fff; 
@@ -61,6 +66,7 @@
             font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
         }
 
+        /* Background mask when sidebars are open */
         #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2500; display: none; }
     </style>
 </head>
@@ -70,32 +76,36 @@
 
     <div id="menu-sb" class="sidebar">
         <span class="close-x" onclick="closeAll()">&times;</span>
-        <a href="#" style="display:block; margin-bottom:30px; text-decoration:none; color:black; letter-spacing:2px;">ABOUT</a>
-        <a href="#" style="display:block; text-decoration:none; color:black; letter-spacing:2px;">SHOP</a>
+        <a href="#" style="display:block; margin-bottom:30px; text-decoration:none; color:black; letter-spacing:2px; font-size:14px;">ABOUT</a>
+        <a href="#" style="display:block; text-decoration:none; color:black; letter-spacing:2px; font-size:14px;">SHOP COLLECTIONS</a>
     </div>
+
     <div id="search-sb" class="sidebar">
         <span class="close-x" onclick="closeAll()">&times;</span>
-        <h3>Search</h3>
-        <input type="text" placeholder="Search..." style="width:90%; padding:10px; border:none; border-bottom:1px solid black; outline:none;">
+        <h3 style="letter-spacing: 2px; font-size: 14px; margin-bottom: 40px;">SEARCH OUR STORE</h3>
+        <input type="text" placeholder="What are you looking for?" style="width:90%; padding:15px 0; border:none; border-bottom:1px solid black; outline:none; font-size:18px;">
     </div>
+
     <div id="cart-sb" class="sidebar">
         <span class="close-x" onclick="closeAll()">&times;</span>
-        <h3>Your Bag</h3>
-        <p style="color:#888; margin-top:40px;">Your bag is currently empty.</p>
+        <h3 style="letter-spacing: 2px; font-size: 14px;">YOUR BAG</h3>
+        <p style="color:#888; margin-top:50px; font-size:13px;">Your shopping bag is currently empty.</p>
     </div>
 
     <nav>
         <div class="nav-left">
-            <i class="fa-solid fa-bars icon-btn" onclick="openSB('menu-sb')"></i>
+            <button class="icon-btn" onclick="openSB('menu-sb')"><i class="fa-solid fa-bars"></i></button>
         </div>
+        
         <div class="nav-center">
-            <a href="#" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <img src="logo2.png" alt="TALISM">
             </a>
         </div>
+        
         <div class="nav-right">
-            <i class="fa-solid fa-magnifying-glass icon-btn" onclick="openSB('search-sb')"></i>
-            <i class="fa-solid fa-bag-shopping icon-btn" onclick="openSB('cart-sb')"></i>
+            <button class="icon-btn" onclick="openSB('search-sb')"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon-btn" onclick="openSB('cart-sb')"><i class="fa-solid fa-bag-shopping"></i></button>
         </div>
     </nav>
 
@@ -108,17 +118,17 @@
         <video autoplay loop muted playsinline><source src="stara-video.mp4" type="video/mp4"></video>
         <div class="overlay">
             <h2>Stara Clothing</h2>
-            <p>Modern modesty, redefined.</p>
-            <a href="#" class="shop-btn">Shop Now</a>
+            <p style="letter-spacing:2px; margin-bottom:20px;">MODERN MODESTY, REDEFINED.</p>
+            <a href="#" class="shop-btn">SHOP NOW</a>
         </div>
     </div>
 
     <div class="section">
-        <img src="perfume.jpg" alt="Fragrance Collection">
+        <img src="perfume.jpg" alt="Fragrance">
         <div class="overlay">
             <h2>Signature Scents</h2>
-            <p>Long-lasting luxury fragrances.</p>
-            <a href="#" class="shop-btn">Shop Now</a>
+            <p style="letter-spacing:2px; margin-bottom:20px;">LONG-LASTING ELEGANCE.</p>
+            <a href="#" class="shop-btn">SHOP NOW</a>
         </div>
     </div>
 
@@ -127,8 +137,15 @@
     </div>
 
     <script>
-        function openSB(id) { document.getElementById(id).classList.add('open'); document.getElementById('mask').style.display = 'block'; }
-        function closeAll() { const sbs = document.querySelectorAll('.sidebar'); sbs.forEach(s => s.classList.remove('open')); document.getElementById('mask').style.display = 'none'; }
+        function openSB(id) { 
+            document.getElementById(id).classList.add('open'); 
+            document.getElementById('mask').style.display = 'block'; 
+        }
+        function closeAll() { 
+            const sbs = document.querySelectorAll('.sidebar'); 
+            sbs.forEach(s => s.classList.remove('open')); 
+            document.getElementById('mask').style.display = 'none'; 
+        }
     </script>
 
 </body>
