@@ -12,13 +12,14 @@
             margin: 0; 
             padding: 0;
             font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #4366F1, #ec4899); /* Your signature gradient */
+            /* Keeping your signature blue-to-purple gradient */
+            background: linear-gradient(135deg, #4366F1, #ec4899); 
             background-attachment: fixed;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* 5. Navigation: Subtle & Refined */
+        /* Navigation: Light & Subtle */
         nav {
             display: flex; 
             justify-content: space-between; 
@@ -30,10 +31,8 @@
             z-index: 100;
         }
 
-        /* 1. Small Logo */
         .nav-logo img { height: 24px; width: auto; }
 
-        /* 5. Light Nav Links */
         .nav-links a { 
             text-decoration: none; 
             color: black; 
@@ -50,10 +49,9 @@
             flex-direction: column; 
             align-items: center; 
             text-align: center;
-            padding: 100px 0 60px 0;
+            padding: 120px 0 80px 0;
         }
 
-        /* 2. Headline & Spacing */
         .hero h1 { 
             font-family: 'Playfair Display', serif; 
             font-size: 4rem; 
@@ -64,31 +62,32 @@
 
         .hero p { 
             max-width: 320px; 
-            margin: 0 auto 50px auto; 
+            margin: 0 auto 60px auto; 
             line-height: 1.6; 
             font-size: 1.1rem; 
             color: black;
         }
 
-        /* 3. Full-Width Media Section */
+        /* Media Section: Large but allows background to show around it */
         .media-container {
             width: 100%;
-            height: 70vh; /* High-impact height below the text */
-            margin-bottom: 60px;
+            height: 65vh; 
             display: flex;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            /* Pushing the button down further */
+            margin-bottom: 100px; 
         }
 
         .media-item {
-            width: 50%; /* Splitting screen between Image and Video */
+            width: 50%; 
             height: 100%;
             object-fit: cover;
         }
 
-        /* 4. Heavy-Hand Button */
+        /* Heavy-Hand Button */
         .btn { 
-            padding: 25px 80px; 
+            padding: 25px 85px; 
             background: black; 
             color: white; 
             text-decoration: none; 
@@ -98,13 +97,14 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.3s ease;
+            display: inline-block;
         }
 
-        /* Mobile Adjustment */
+        /* Mobile View: Stack video and image */
         @media (max-width: 600px) {
-            .media-container { height: 50vh; flex-direction: column; }
+            .media-container { height: 60vh; flex-direction: column; margin-bottom: 80px; }
             .media-item { width: 100%; height: 50%; }
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 3.2rem; }
         }
     </style>
 </head>
