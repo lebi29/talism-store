@@ -6,55 +6,128 @@
     <title>TALISM | Luxury Brand</title>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
         
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #fff; overflow-x: hidden; }
+        body, html { 
+            margin: 0; 
+            padding: 0;
+            font-family: 'Inter', sans-serif; 
+            background: #fff; 
+            height: 100%;
+            overflow-x: hidden;
+        }
 
+        /* 5. Refined Navigation */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; background: transparent; position: absolute;
-            width: 90%; top: 0; left: 0; z-index: 100;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 20px 5%; 
+            position: absolute;
+            width: 90%; 
+            top: 0; 
+            left: 0; 
+            z-index: 100;
         }
 
-        .nav-links a { text-decoration: none; color: black; margin-left: 15px; font-size: 14px; font-weight: 600; }
+        /* 1. Smaller Logo Size */
+        .nav-logo img {
+            height: 30px; 
+            width: auto;
+            opacity: 0.9;
+        }
 
+        /* 5. Reduced weight and opacity for Nav Links */
+        .nav-links a { 
+            text-decoration: none; 
+            color: black; 
+            margin-left: 20px; 
+            font-size: 13px; 
+            font-weight: 300; 
+            opacity: 0.7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 3. Full Screen Background Style */
         .hero {
-            min-height: 100vh; width: 100%;
-            background: linear-gradient(135deg, #4366F1, #ec4899);
-            background-attachment: fixed;
-            display: flex; flex-direction: column; justify-content: center;
-            align-items: center; text-align: center; padding: 40px 0;
+            height: 100vh; 
+            width: 100%;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center; 
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #4366F1, #ec4899); /* Placeholder if video fails */
         }
 
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 0 0 10px 0; color: black; }
-
-        .hero p { max-width: 320px; margin: 0 auto 40px auto; line-height: 1.6; font-size: 1.1rem; color: black; font-weight: 500; }
-
-        .product-preview { display: flex; justify-content: center; gap: 15px; padding: 0 10px 40px 10px; flex-wrap: wrap; }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 15px;
-            padding: 12px; width: 140px; text-align: center;
+        /* Video Background */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
-        .product-card img, .product-card video {
-            width: 100%; height: 150px; border-radius: 10px; object-fit: cover; margin-bottom: 8px;
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Sits on top of video */
+            padding: 20px;
         }
 
-        .product-card h3 { font-size: 0.9rem; color: black; margin: 5px 0; }
+        .hero h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 4.5rem; 
+            margin: 0; 
+            color: black; 
+            letter-spacing: -2px;
+        }
 
+        /* 2. Increased Space (Margin Bottom) */
+        .hero h1 {
+            margin-bottom: 25px; 
+        }
+
+        .hero p { 
+            max-width: 350px; 
+            margin: 0 auto 50px auto; 
+            line-height: 1.6; 
+            font-size: 1.1rem; 
+            color: black; 
+            font-weight: 400; 
+            opacity: 0.9;
+        }
+
+        /* 4. Heavy Hand Padding on Button */
         .btn { 
-            padding: 18px 40px; background: black; color: white; 
-            text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;
+            padding: 22px 60px; 
+            background: black; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.4s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #222;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">
-            <img src="logo2.png" alt="TALISM Logo" style="height: 45px; width: auto;">
+        <a href="index.html" class="nav-logo">
+            <img src="logo2.png" alt="TALISM Logo">
         </a>
         <div class="nav-links">
             <a href="about.html">About</a>
@@ -64,24 +137,17 @@
     </nav>
 
     <header class="hero">
-        <h1>TALISM</h1>
-        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="stara-video.mp4" type="video/mp4">
+        </video>
 
-        <div class="product-preview">
-            <div class="product-card">
-                <img src="perfume.jpg" alt="Fragrances">
-                <h3>Fragrances</h3>
-            </div>
-            <div class="product-card">
-                <video autoplay loop muted playsinline>
-                    <source src="stara-video.mp4" type="video/mp4">
-                </video>
-                <h3>Stara Clothing</h3>
-            </div>
+        <div class="hero-content">
+            <h1>TALISM</h1>
+            <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+            <a href="shop.html" class="btn">Explore Collections</a>
         </div>
-
-        <a href="shop.html" class="btn">Explore Collections</a>
     </header>
 
 </body>
 </html>
+            
