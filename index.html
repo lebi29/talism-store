@@ -31,32 +31,16 @@
         .nav-logo img { height: 32px; width: auto; display: block; } 
         .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 5px; }
 
-        /* --- SIDEBAR: FIXED TO REMOVE DENSE LINE --- */
+        /* --- SIDEBAR --- */
         #menu-sb { 
-            position: fixed; top: 0; 
-            left: -320px; /* Fully off-screen */
-            width: 300px; height: 100%; 
+            position: fixed; top: 0; left: -320px; width: 300px; height: 100%; 
             background: #F4EBEB; z-index: 4000; 
             transition: transform 0.4s ease-in-out, visibility 0.4s; 
-            padding: 80px 30px; 
-            display: flex; flex-direction: column;
-            border: none;
-            box-shadow: none;
-            visibility: hidden; /* THE FIX: Makes it invisible to the browser until opened */
+            padding: 80px 30px; display: flex; flex-direction: column;
+            visibility: hidden; 
         }
-        
-        /* When open, we make it visible and slide it in using transform for smoothness */
-        #menu-sb.open { 
-            visibility: visible;
-            transform: translateX(320px); 
-            box-shadow: 10px 0 30px rgba(0,0,0,0.15); 
-        }
-
-        .sb-link {
-            display: block; text-decoration: none; color: #000; font-size: 13px;
-            letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; transition: 0.3s;
-        }
-        .sb-link:hover { opacity: 0.5; }
+        #menu-sb.open { visibility: visible; transform: translateX(320px); box-shadow: 10px 0 30px rgba(0,0,0,0.15); }
+        .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
         .sb-divider { border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 20px 0 30px; }
 
         /* --- SEARCH DROPDOWN --- */
@@ -68,17 +52,27 @@
         #search-dropdown.active { top: 75px; }
         #search-dropdown input { width: 90%; border: none; outline: none; background: transparent; font-size: 14px; letter-spacing: 2px; }
 
-        /* --- CONTENT & SPACING --- */
+        /* --- CONTENT & SECTION STYLING (THE WHITE BORDER FIX) --- */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; color: #000; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
         .hero-text p { font-size: 0.9rem; max-width: 320px; margin: 15px auto 0; line-height: 1.6; }
 
         .section { 
-            position: relative; width: 100%; height: 80vh; 
-            margin-bottom: 120px; /* Luxury spacing */
-            display: flex; justify-content: center; align-items: center; overflow: hidden; 
+            position: relative; 
+            width: 90%; /* Creates space for border */
+            height: 80vh; 
+            margin: 0 auto 120px auto; /* Centers the container */
+            display: flex; justify-content: center; align-items: center; 
+            overflow: hidden; 
+            border-radius: 30px; /* Rounded corners */
+            border: 3px solid #FFFFFF; /* White border you requested */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .section video, .section img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .section video, .section img { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; 
+            border-radius: 27px; /* Matches outer border */
+        }
 
         .overlay { position: relative; z-index: 10; text-align: center; color: #fff; padding: 20px; }
         .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 15px; text-shadow: 0 2px 15px rgba(0,0,0,0.4); }
