@@ -11,19 +11,22 @@
         body, html { 
             margin: 0; padding: 0;
             font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #4366F1, #ec4899); 
+            /* NEW LUXURY COLOR COMBO: Midnight Navy to Deep Slate */
+            background: linear-gradient(135deg, #0f172a, #1e293b); 
             background-attachment: fixed;
             min-height: 100vh;
+            color: #f8fafc; /* Soft white text */
         }
 
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
         }
-        .nav-logo img { height: 20px; width: auto; }
+        /* Logo and links adjusted for dark background */
+        .nav-logo img { height: 20px; width: auto; filter: invert(1); }
         .nav-links a { 
-            text-decoration: none; color: black; margin-left: 20px; 
-            font-size: 11px; font-weight: 300; opacity: 0.5; letter-spacing: 1.5px;
+            text-decoration: none; color: white; margin-left: 20px; 
+            font-size: 11px; font-weight: 300; opacity: 0.7; letter-spacing: 1.5px;
         }
 
         .hero-text {
@@ -32,17 +35,17 @@
         }
         .hero-text h1 { 
             font-family: 'Playfair Display', serif; font-size: 3.5rem; 
-            margin: 0 0 35px 0; color: black; 
+            margin: 0 0 35px 0; color: #f1f5f9; 
         }
         .hero-text p { 
-            max-width: 320px; margin: 0 auto; line-height: 1.6; font-size: 1rem; color: black;
+            max-width: 320px; margin: 0 auto; line-height: 1.6; font-size: 1rem; color: #cbd5e1;
         }
 
         .section-container {
             position: relative;
             width: 100%;
             height: 90vh; 
-            margin-bottom: 180px; /* Increased section gap */
+            margin-bottom: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,40 +67,40 @@
             width: 90%;
         }
 
-        /* MASSIVE SPACING FOR WORDS */
         .overlay-content h2 {
             font-family: 'Playfair Display', serif;
             font-size: 3.8rem;
-            margin: 0 0 70px 0; /* Huge gap between Title and Subtitle */
-            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            margin: 0 0 70px 0;
+            text-shadow: 2px 2px 25px rgba(0,0,0,0.7);
         }
 
         .overlay-content p {
             font-size: 1.2rem;
-            margin: 0 0 100px 0; /* Massive gap between Subtitle and Button */
+            margin: 0 0 100px 0;
             font-weight: 300;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        /* REMOVED BOUNDARY: Clean underlined text button */
+        /* ROSE GOLD ACCENT: Underlined button */
         .mini-btn {
             display: inline-block;
             background: transparent;
-            color: white;
-            border: none; /* Removed the white boundary/border */
+            color: #fda4af; /* Soft Rose Pink color */
+            border: none;
             text-decoration: none;
             font-weight: 500;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            border-bottom: 2px solid white; /* Adds a luxury underline instead */
+            border-bottom: 2px solid #fda4af; /* Rose gold underline */
             padding-bottom: 8px;
             transition: 0.3s ease;
         }
 
         .mini-btn:hover {
-            opacity: 0.7;
+            color: white;
+            border-bottom-color: white;
             letter-spacing: 6px;
         }
 
@@ -105,7 +108,7 @@
             display: flex; justify-content: center; padding-bottom: 150px;
         }
         .btn { 
-            padding: 26px 95px; background: black; color: white; 
+            padding: 26px 95px; background: white; color: black; 
             text-decoration: none; border-radius: 60px; font-weight: 600; 
             font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
         }
