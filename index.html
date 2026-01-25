@@ -16,7 +16,6 @@
             min-height: 100vh;
         }
 
-        /* Navigation: Subtle & Refined */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
@@ -27,34 +26,28 @@
             font-size: 11px; font-weight: 300; opacity: 0.5; letter-spacing: 1.5px;
         }
 
-        /* Header Text Area */
         .hero-text {
             display: flex; flex-direction: column; align-items: center;
             text-align: center; padding: 140px 0 60px 0;
         }
-
         .hero-text h1 { 
             font-family: 'Playfair Display', serif; font-size: 3.5rem; 
             margin: 0 0 35px 0; color: black; 
         }
-
         .hero-text p { 
-            max-width: 320px; margin: 0 auto 0 auto; 
-            line-height: 1.6; font-size: 1rem; color: black;
+            max-width: 320px; margin: 0 auto; line-height: 1.6; font-size: 1rem; color: black;
         }
 
-        /* MEDIA SECTION WRAPPER */
         .section-container {
             position: relative;
             width: 100%;
             height: 90vh; 
-            margin-bottom: 150px;
+            margin-bottom: 180px; /* Increased section gap */
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
         }
-
         .section-container video, .section-container img {
             position: absolute;
             top: 0; left: 0;
@@ -63,7 +56,6 @@
             z-index: 1;
         }
 
-        /* TEXT OVERLAY: Centered with massive spacing */
         .overlay-content {
             position: relative;
             z-index: 10; 
@@ -72,45 +64,43 @@
             width: 90%;
         }
 
-        /* Increased Bottom Margin for Heading */
+        /* MASSIVE SPACING FOR WORDS */
         .overlay-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            margin: 0 0 40px 0; /* Pushes subtitle further down */
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+            font-size: 3.8rem;
+            margin: 0 0 70px 0; /* Huge gap between Title and Subtitle */
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
         }
 
-        /* Increased Bottom Margin for Subtitle */
         .overlay-content p {
-            font-size: 1.1rem;
-            margin: 0 0 60px 0; /* Pushes button much further down */
+            font-size: 1.2rem;
+            margin: 0 0 100px 0; /* Massive gap between Subtitle and Button */
             font-weight: 300;
-            letter-spacing: 1.5px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        /* REFINED BUTTON: No white background, just white border and text */
+        /* REMOVED BOUNDARY: Clean underlined text button */
         .mini-btn {
             display: inline-block;
-            padding: 18px 50px;
             background: transparent;
             color: white;
-            border: 1.5px solid white;
+            border: none; /* Removed the white boundary/border */
             text-decoration: none;
-            border-radius: 50px;
             font-weight: 500;
-            font-size: 12px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: 0.4s ease;
+            letter-spacing: 4px;
+            border-bottom: 2px solid white; /* Adds a luxury underline instead */
+            padding-bottom: 8px;
+            transition: 0.3s ease;
         }
 
         .mini-btn:hover {
-            background: white;
-            color: black;
+            opacity: 0.7;
+            letter-spacing: 6px;
         }
 
-        /* Bottom Explore Button */
         .button-area {
             display: flex; justify-content: center; padding-bottom: 150px;
         }
@@ -146,7 +136,7 @@
         <div class="overlay-content">
             <h2>Stara Clothing</h2>
             <p>Modern modesty, redefined.</p>
-            <a href="shop.html#clothing" class="mini-btn">Shop Clothing</a>
+            <a href="shop.html#clothing" class="mini-btn">Shop Now</a>
         </div>
     </div>
 
@@ -155,7 +145,7 @@
         <div class="overlay-content">
             <h2>Signature Scents</h2>
             <p>Memorable, long-lasting aromas.</p>
-            <a href="shop.html#perfumes" class="mini-btn">Shop Fragrances</a>
+            <a href="shop.html#perfumes" class="mini-btn">Shop Now</a>
         </div>
     </div>
 
@@ -165,4 +155,3 @@
 
 </body>
 </html>
-        
