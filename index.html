@@ -15,38 +15,37 @@
             background: linear-gradient(135deg, #A978C9, #E9CDCE); 
             background-attachment: fixed;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
+        /* Fixed Navigation with About Button */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
+            padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
         }
-        .nav-logo img { height: 18px; width: auto; }
+        .nav-logo img { height: 20px; width: auto; }
         .nav-links a { 
-            text-decoration: none; color: black; margin-left: 15px; 
-            font-size: 10px; font-weight: 400; opacity: 0.6; letter-spacing: 1px;
+            text-decoration: none; color: black; margin-left: 20px; 
+            font-size: 11px; font-weight: 400; opacity: 0.7; letter-spacing: 1.5px;
         }
 
-        /* Fixed Hero Area */
         .hero-text {
             display: flex; flex-direction: column; align-items: center;
-            text-align: center; padding: 100px 20px 40px 20px;
+            text-align: center; padding: 140px 20px 60px 20px;
         }
         .hero-text h1 { 
-            font-family: 'Playfair Display', serif; font-size: 3rem; 
-            margin: 0 0 15px 0; color: black; 
+            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
+            margin: 0 0 25px 0; color: black; 
         }
         .hero-text p { 
-            max-width: 280px; line-height: 1.5; font-size: 0.9rem; color: black; margin: 0;
+            max-width: 320px; line-height: 1.6; font-size: 1rem; color: black;
         }
 
-        /* Fixed Section Container to prevent text overflow */
+        /* Section Containers */
         .section-container {
             position: relative;
             width: 100%;
-            height: 70vh; 
-            margin-bottom: 80px;
+            height: 80vh; 
+            margin-bottom: 120px; /* Space between the two products */
             display: flex; justify-content: center; align-items: center;
             overflow: hidden;
         }
@@ -55,27 +54,21 @@
             width: 100%; height: 100%; object-fit: cover; z-index: 1;
         }
 
-        /* SAFE SPACING: Increased gaps without breaking the layout */
+        /* Spacing for Overlay Content */
         .overlay-content {
-            position: relative; z-index: 10; text-align: center; color: white; width: 85%;
+            position: relative; z-index: 10; text-align: center; color: white; width: 90%;
         }
-
         .overlay-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin: 0 0 30px 0; /* Clear gap below title */
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif; font-size: 3.2rem;
+            margin: 0 0 40px 0; /* Gap between Title and Subtitle */
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
         }
-
         .overlay-content p {
-            font-size: 1rem;
-            margin: 0 0 45px 0; /* Clear gap below subtitle */
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 1.1rem; margin: 0 0 60px 0; /* Gap between Subtitle and Button */
+            font-weight: 300; letter-spacing: 2px; text-transform: uppercase;
         }
 
-        /* REFINED BUTTON: No boundary, just elegant underlined text */
+        /* Shop Button Style: No white background, just clean underline */
         .mini-btn {
             display: inline-block;
             background: transparent;
@@ -83,11 +76,21 @@
             border: none;
             text-decoration: none;
             font-weight: 500;
-            font-size: 12px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            border-bottom: 1px solid white; 
-            padding-bottom: 6px;
+            letter-spacing: 4px;
+            border-bottom: 2px solid white; 
+            padding-bottom: 8px;
+        }
+
+        /* Fixed Explore Collections Area */
+        .button-area {
+            display: flex; justify-content: center; padding: 60px 0 150px 0;
+        }
+        .explore-btn { 
+            padding: 22px 70px; background: black; color: white; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
         }
     </style>
 </head>
@@ -98,14 +101,14 @@
             <img src="logo2.png" alt="TALISM">
         </a>
         <div class="nav-links">
-            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a> <a href="shop.html">Shop</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <div class="hero-text">
         <h1>TALISM</h1>
-        <p>Refined fashion and long-lasting fragrances.</p>
+        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
     </div>
 
     <div class="section-container">
@@ -115,7 +118,7 @@
         <div class="overlay-content">
             <h2>Stara Clothing</h2>
             <p>Modern modesty, redefined.</p>
-            <a href="shop.html" class="mini-btn">Shop Now</a>
+            <a href="shop.html#clothing" class="mini-btn">Shop Now</a>
         </div>
     </div>
 
@@ -124,8 +127,12 @@
         <div class="overlay-content">
             <h2>Signature Scents</h2>
             <p>Memorable, long-lasting aromas.</p>
-            <a href="shop.html" class="mini-btn">Shop Now</a>
+            <a href="shop.html#perfumes" class="mini-btn">Shop Now</a>
         </div>
+    </div>
+
+    <div class="button-area">
+        <a href="shop.html" class="explore-btn">Explore Collections</a>
     </div>
 
 </body>
