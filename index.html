@@ -19,76 +19,76 @@
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
-            background-color: #E9CDCE; /* Pale Sand background from palette */
-            height: 75px; /* Slightly taller to accommodate larger logo */
+            background-color: #E9CDCE; /* Pale Sand background */
+            height: 75px; 
         }
         .nav-left, .nav-right { flex: 1; display: flex; align-items: center; }
-        .nav-center { flex: 2; display: flex; justify-content: center; } /* More space for logo */
+        .nav-center { flex: 2; display: flex; justify-content: center; }
         .nav-right { justify-content: flex-end; gap: 25px; }
 
-        /* FIXED: Larger Logo Size */
-        .nav-logo img { 
-            height: 28px; /* Increased from 16px for better visibility */
-            width: auto; 
-            display: block;
-        }
+        /* Larger Logo */
+        .nav-logo img { height: 30px; width: auto; display: block; }
         
-        .icon-link { color: #000; text-decoration: none; font-size: 20px; cursor: pointer; }
-        .menu-btn { background: none; border: none; padding: 0; font-size: 22px; cursor: pointer; }
+        .icon-btn { color: #000; font-size: 20px; cursor: pointer; background: none; border: none; }
 
-        /* MENU SIDEBAR (Left Only) */
+        /* --- NEW SEARCH OVERLAY (Fixes 404 Error) --- */
+        #search-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 4000; display: none; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        #search-overlay input {
+            width: 80%; max-width: 600px; padding: 20px;
+            font-size: 24px; border: none; border-bottom: 2px solid #000;
+            outline: none; font-family: 'Inter', sans-serif; background: transparent;
+        }
+        .close-search { position: absolute; top: 30px; right: 5%; font-size: 30px; cursor: pointer; }
+
+        /* LEFT MENU SIDEBAR */
         #menu-sb { 
             position: fixed; top: 0; left: -350px; width: 300px; height: 100%; 
             background: #fff; z-index: 3000; transition: 0.4s; padding: 80px 30px; 
         }
         #menu-sb.open { left: 0; }
-        .close-x { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; }
 
-        /* --- HOME PAGE CONTENT --- */
+        /* CONTENT STYLING */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; margin-bottom: 10px; }
-        .hero-text p { max-width: 450px; margin: 0 auto; line-height: 1.6; font-size: 1rem; }
-
-        .section { 
-            position: relative; width: 100%; height: 80vh; margin-bottom: 60px; 
-            display: flex; justify-content: center; align-items: center; overflow: hidden;
-        }
+        .section { position: relative; width: 100%; height: 80vh; margin-bottom: 60px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
         .section video, .section img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
-
         .overlay { position: relative; z-index: 10; text-align: center; color: #fff; }
-        .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3.2rem; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3.2rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .shop-btn { color: #fff; text-decoration: none; border-bottom: 2px solid #fff; padding-bottom: 5px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
-
-        .explore-area { display: flex; justify-content: center; padding: 40px 0 120px 0; }
-        .explore-btn { 
-            padding: 22px 70px; background: #000; color: #fff; 
-            text-decoration: none; border-radius: 50px; font-weight: 600; 
-            font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
-        }
-
+        
         #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2500; display: none; }
     </style>
 </head>
 <body>
 
     <div id="mask" onclick="closeMenu()"></div>
+    
+    <div id="search-overlay">
+        <span class="close-search" onclick="closeSearch()">&times;</span>
+        <input type="text" placeholder="Search TALISM...">
+    </div>
 
     <div id="menu-sb">
-        <span class="close-x" onclick="closeMenu()">&times;</span>
-        <a href="about.html" style="display:block; margin-bottom:30px; text-decoration:none; color:black; letter-spacing:2px; font-weight:500;">ABOUT</a>
-        <a href="shop.html" style="display:block; text-decoration:none; color:black; letter-spacing:2px; font-weight:500;">SHOP</a>
+        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeMenu()">&times;</span>
+        <a href="#" style="display:block; margin-bottom:30px; text-decoration:none; color:black; letter-spacing:2px;">ABOUT</a>
+        <a href="#" style="display:block; text-decoration:none; color:black; letter-spacing:2px;">SHOP</a>
     </div>
 
     <nav>
         <div class="nav-left">
-            <button class="menu-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
         </div>
         <div class="nav-center">
             <a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a>
         </div>
         <div class="nav-right">
-            <a href="search.html" class="icon-link"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="cart.html" class="icon-link"><i class="fa-solid fa-bag-shopping"></i></a>
+            <button class="icon-btn" onclick="openSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
         </div>
     </nav>
 
@@ -101,31 +101,18 @@
         <video autoplay loop muted playsinline><source src="stara-video.mp4" type="video/mp4"></video>
         <div class="overlay">
             <h2>Stara Clothing</h2>
-            <a href="shop.html" class="shop-btn">SHOP NOW</a>
+            <a href="#" class="shop-btn">SHOP NOW</a>
         </div>
-    </div>
-
-    <div class="section">
-        <img src="perfume.jpg" alt="Fragrance">
-        <div class="overlay">
-            <h2>Signature Scents</h2>
-            <a href="shop.html" class="shop-btn">SHOP NOW</a>
-        </div>
-    </div>
-
-    <div class="explore-area">
-        <a href="collections.html" class="explore-btn">Explore Collections</a>
     </div>
 
     <script>
-        function openMenu() { 
-            document.getElementById('menu-sb').classList.add('open'); 
-            document.getElementById('mask').style.display = 'block'; 
-        }
-        function closeMenu() { 
-            document.getElementById('menu-sb').classList.remove('open'); 
-            document.getElementById('mask').style.display = 'none'; 
-        }
+        function openMenu() { document.getElementById('menu-sb').classList.add('open'); document.getElementById('mask').style.display = 'block'; }
+        function closeMenu() { document.getElementById('menu-sb').classList.remove('open'); document.getElementById('mask').style.display = 'none'; }
+        
+        // Fixes the 404 error by showing an overlay instead of linking to a dead page
+        function openSearch() { document.getElementById('search-overlay').style.display = 'flex'; }
+        function closeSearch() { document.getElementById('search-overlay').style.display = 'none'; }
     </script>
 </body>
 </html>
+
