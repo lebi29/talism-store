@@ -12,12 +12,13 @@
             margin: 0; 
             padding: 0;
             font-family: 'Inter', sans-serif; 
-            background: #fff; 
-            height: 100%;
-            overflow: hidden;
+            background: linear-gradient(135deg, #4366F1, #ec4899); /* Your signature gradient */
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* 5. Navigation: Reduced weight and opacity */
+        /* 5. Navigation: Subtle & Refined */
         nav {
             display: flex; 
             justify-content: space-between; 
@@ -26,87 +27,68 @@
             position: absolute;
             width: 90%; 
             top: 0; 
-            left: 0; 
             z-index: 100;
         }
 
-        /* 1. Smaller Logo Size */
-        .nav-logo img {
-            height: 24px; 
-            width: auto;
-        }
+        /* 1. Small Logo */
+        .nav-logo img { height: 24px; width: auto; }
 
+        /* 5. Light Nav Links */
         .nav-links a { 
             text-decoration: none; 
             color: black; 
             margin-left: 20px; 
             font-size: 12px; 
-            font-weight: 300; /* Low font weight */
-            opacity: 0.6;    /* Lowered attention */
+            font-weight: 300; 
+            opacity: 0.6;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* 3. Full Screen Background Style */
         .hero {
-            height: 100vh; 
-            width: 100%;
             display: flex; 
             flex-direction: column; 
-            justify-content: center;
             align-items: center; 
             text-align: center;
-            position: relative;
+            padding: 100px 0 60px 0;
         }
 
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        /* Soft overlay to ensure readability */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.15);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            padding: 20px;
-        }
-
-        /* 2. Headline & Spacing Improvements */
+        /* 2. Headline & Spacing */
         .hero h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 4.2rem; 
-            margin: 0 0 35px 0; /* Increased margin bottom */
+            font-size: 4rem; 
+            margin: 0 0 30px 0; 
             color: black; 
-            letter-spacing: -2px;
+            letter-spacing: -1px;
         }
 
         .hero p { 
-            max-width: 340px; 
-            margin: 0 auto 55px auto; 
+            max-width: 320px; 
+            margin: 0 auto 50px auto; 
             line-height: 1.6; 
             font-size: 1.1rem; 
-            color: black; 
-            font-weight: 400; 
+            color: black;
         }
 
-        /* 4. Heavy Hand Padding on Button */
+        /* 3. Full-Width Media Section */
+        .media-container {
+            width: 100%;
+            height: 70vh; /* High-impact height below the text */
+            margin-bottom: 60px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .media-item {
+            width: 50%; /* Splitting screen between Image and Video */
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 4. Heavy-Hand Button */
         .btn { 
-            padding: 24px 75px; /* Large, confident padding */
+            padding: 25px 80px; 
             background: black; 
             color: white; 
             text-decoration: none; 
@@ -114,14 +96,15 @@
             font-weight: 600; 
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
-            transition: 0.4s ease;
-            display: inline-block;
+            letter-spacing: 2px;
+            transition: 0.3s ease;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            background: #222;
+        /* Mobile Adjustment */
+        @media (max-width: 600px) {
+            .media-container { height: 50vh; flex-direction: column; }
+            .media-item { width: 100%; height: 50%; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -139,16 +122,17 @@
     </nav>
 
     <header class="hero">
-        <video autoplay loop muted playsinline class="hero-video">
-            <source src="stara-video.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
+        <h1>TALISM</h1>
+        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
 
-        <div class="hero-content">
-            <h1>TALISM</h1>
-            <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
-            <a href="shop.html" class="btn">Explore Collections</a>
+        <div class="media-container">
+            <img src="perfume.jpg" class="media-item" alt="Fragrances">
+            <video autoplay loop muted playsinline class="media-item">
+                <source src="stara-video.mp4" type="video/mp4">
+            </video>
         </div>
+
+        <a href="shop.html" class="btn">Explore Collections</a>
     </header>
 
 </body>
