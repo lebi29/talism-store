@@ -11,112 +11,85 @@
         body, html { 
             margin: 0; padding: 0;
             font-family: 'Inter', sans-serif; 
-            /* BACKGROUND: Deep Midnight Navy */
-            background-color: #0a0f1d; 
+            /* THE COLOR COMBO YOU SENT: Transitioning from the Lavender (left) to the Pale Pink (right) */
+            background: linear-gradient(135deg, #A978C9 0%, #F3BED6 100%); 
             background-attachment: fixed;
             min-height: 100vh;
-            color: #ffffff;
         }
 
-        /* Nav & Logo */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
         }
-        /* Inverts logo color to white for the dark background */
-        .nav-logo img { height: 22px; width: auto; filter: invert(1); }
+        .nav-logo img { height: 20px; width: auto; }
         .nav-links a { 
-            text-decoration: none; color: white; margin-left: 20px; 
-            font-size: 11px; font-weight: 300; opacity: 0.8; letter-spacing: 2px;
+            text-decoration: none; color: black; margin-left: 20px; 
+            font-size: 11px; font-weight: 300; opacity: 0.6; letter-spacing: 1.5px;
         }
 
-        /* Top Header Area */
         .hero-text {
             display: flex; flex-direction: column; align-items: center;
-            text-align: center; padding: 160px 0 80px 0;
+            text-align: center; padding: 140px 0 60px 0;
         }
         .hero-text h1 { 
-            font-family: 'Playfair Display', serif; font-size: 3.8rem; 
-            margin: 0 0 40px 0; color: white; letter-spacing: 4px;
-        }
-        .hero-text p { 
-            max-width: 340px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem; color: #cbd5e1;
+            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
+            margin: 0 0 35px 0; color: black; 
         }
 
-        /* Media Sections */
+        /* MEDIA SECTION */
         .section-container {
             position: relative;
             width: 100%;
-            height: 85vh; 
-            margin-bottom: 220px; /* Massive gap to prevent words from being close */
+            height: 90vh; 
+            margin-bottom: 200px; /* Massive gap between sections */
             display: flex; justify-content: center; align-items: center;
-            overflow: hidden;
         }
         .section-container video, .section-container img {
             position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; object-fit: cover; z-index: 1;
+            width: 100%; height: 100%; object-fit: cover;
         }
 
-        /* Overlay Text Spacing */
+        /* FIXING THE "WORDS CLOSE TOGETHER" ISSUE */
         .overlay-content {
-            position: relative; z-index: 10; text-align: center; width: 90%;
+            position: relative; z-index: 10; text-align: center; color: white;
         }
 
         .overlay-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin: 0 0 85px 0; /* Massive bottom margin for Title */
-            text-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+            font-size: 3.8rem;
+            margin: 0 0 100px 0; /* MASSIVE SPACE below Title */
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
         }
 
         .overlay-content p {
             font-size: 1.2rem;
-            margin: 0 0 115px 0; /* Massive bottom margin for Subtitle */
+            margin: 0 0 130px 0; /* MASSIVE SPACE below Subtitle */
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* SHOP BUTTON: Transparent, Rose Gold Color, Underline Style */
+        /* REMOVING WHITE BACKGROUND AND BOUNDARY */
         .mini-btn {
             display: inline-block;
             background: transparent; /* No white background */
-            color: #e2a89b; /* Rose Gold/Pink color for text */
-            border: none; /* No boundary/border */
+            color: white;
+            border: none; /* No boundary/border line around the button */
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            border-bottom: 1px solid #e2a89b; /* Elegant Rose Gold underline */
+            letter-spacing: 4px;
+            border-bottom: 2px solid white; /* Just a luxury underline */
             padding-bottom: 10px;
-            transition: 0.4s ease;
-        }
-        .mini-btn:hover {
-            color: white;
-            border-bottom-color: white;
-            letter-spacing: 7px;
-        }
-
-        /* Bottom Action Button */
-        .button-area {
-            display: flex; justify-content: center; padding-bottom: 150px;
-        }
-        .btn { 
-            padding: 24px 80px; background: white; color: black; 
-            text-decoration: none; border-radius: 50px; font-weight: 600; 
-            font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-logo">
-            <img src="logo2.png" alt="TALISM">
-        </a>
+        <img src="logo2.png" alt="TALISM" class="nav-logo">
         <div class="nav-links">
-            <a href="about.html">About</a>
             <a href="shop.html">Shop</a>
             <a href="contact.html">Contact</a>
         </div>
@@ -124,7 +97,7 @@
 
     <div class="hero-text">
         <h1>TALISM</h1>
-        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+        <p>Refined fashion and long-lasting fragrances.</p>
     </div>
 
     <div class="section-container">
@@ -134,21 +107,8 @@
         <div class="overlay-content">
             <h2>Stara Clothing</h2>
             <p>Modern modesty, redefined.</p>
-            <a href="shop.html#clothing" class="mini-btn">Shop Now</a>
+            <a href="shop.html" class="mini-btn">Shop Now</a>
         </div>
-    </div>
-
-    <div class="section-container">
-        <img src="perfume.jpg" alt="Fragrances">
-        <div class="overlay-content">
-            <h2>Signature Scents</h2>
-            <p>Memorable, long-lasting aromas.</p>
-            <a href="shop.html#perfumes" class="mini-btn">Shop Now</a>
-        </div>
-    </div>
-
-    <div class="button-area">
-        <a href="shop.html" class="btn">Explore Collections</a>
     </div>
 
 </body>
