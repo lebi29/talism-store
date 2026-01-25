@@ -19,65 +19,50 @@
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
-            background-color: #E9CDCE; /* Pale Sand */
+            background-color: #E9CDCE; /* Pale Sand Color */
             height: 75px; 
         }
-        .nav-left, .nav-right { flex: 1; display: flex; align-items: center; }
-        .nav-center { flex: 2; display: flex; justify-content: center; }
-        .nav-right { justify-content: flex-end; gap: 25px; }
-
-        .nav-logo img { height: 30px; width: auto; display: block; } /* Larger Logo */
+        .nav-logo img { height: 30px; width: auto; display: block; }
         .icon-btn { color: #000; font-size: 20px; cursor: pointer; background: none; border: none; }
 
-        /* --- DROP-DOWN SEARCH BAR (Below Nav) --- */
+        /* --- THEMED DROP-DOWN SEARCH BAR --- */
         #search-dropdown {
-            position: fixed; top: -100px; /* Hidden above nav */
-            left: 0; width: 100%; height: 60px;
-            background: #fff; z-index: 1999; /* Just behind nav */
-            display: flex; align-items: center; justify-content: center;
-            transition: top 0.3s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: fixed; top: -100px; /* Hidden initially */
+            left: 0; width: 100%; height: 65px;
+            background: #F4EBEB; /* Slightly lighter Sand/White combo */
+            z-index: 1999; 
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%;
+            transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        #search-dropdown.active { top: 75px; /* Slides down to sit under nav */ }
-        #search-dropdown input {
-            width: 80%; padding: 10px; font-size: 16px; border: none; outline: none;
-        }
-        .close-search { font-size: 20px; cursor: pointer; padding: 0 15px; }
-
-        /* MENU SIDEBAR */
-        #menu-sb { 
-            position: fixed; top: 0; left: -350px; width: 300px; height: 100%; 
-            background: #fff; z-index: 3000; transition: 0.4s; padding: 80px 30px; 
-        }
-        #menu-sb.open { left: 0; }
+        #search-dropdown.active { top: 75px; /* Sits below nav */ }
         
-        /* CONTENT */
+        #search-dropdown input {
+            width: 90%; padding: 10px 0; font-size: 14px; border: none; 
+            outline: none; background: transparent; letter-spacing: 2px;
+            font-family: 'Inter', sans-serif; color: #333;
+        }
+        .close-search { font-size: 18px; cursor: pointer; color: #555; }
+
+        /* --- OTHER ELEMENTS --- */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; }
         .section { position: relative; width: 100%; height: 80vh; margin-bottom: 60px; overflow: hidden; }
         .section video, .section img { width: 100%; height: 100%; object-fit: cover; }
-        
-        #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2500; display: none; }
     </style>
 </head>
 <body>
 
-    <div id="mask" onclick="closeMenu()"></div>
-    
     <div id="search-dropdown">
-        <input type="text" placeholder="SEARCH...">
-        <span class="close-search" onclick="toggleSearch()">&times;</span>
-    </div>
-
-    <div id="menu-sb">
-        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeMenu()">&times;</span>
-        <a href="#" style="display:block; margin-bottom:30px; text-decoration:none; color:black; letter-spacing:2px;">ABOUT</a>
-        <a href="#" style="display:block; text-decoration:none; color:black; letter-spacing:2px;">SHOP</a>
+        <input type="text" id="main-search" placeholder="SEARCH TALISM..." onkeypress="handleSearch(event)">
+        <span class="close-search" onclick="toggleSearch()"><i class="fa-solid fa-xmark"></i></span>
     </div>
 
     <nav>
         <div class="nav-left">
-            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+            <button class="icon-btn"><i class="fa-solid fa-bars"></i></button>
         </div>
         <div class="nav-center">
             <a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a>
@@ -90,7 +75,7 @@
 
     <div class="hero-text">
         <h1>TALISM</h1>
-        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+        <p>Refined fashion and long-lasting fragrances.</p>
     </div>
 
     <div class="section">
@@ -98,15 +83,22 @@
     </div>
 
     <script>
-        function openMenu() { document.getElementById('menu-sb').classList.add('open'); document.getElementById('mask').style.display = 'block'; }
-        function closeMenu() { document.getElementById('menu-sb').classList.remove('open'); document.getElementById('mask').style.display = 'none'; }
-        
-        // Toggles the drop-down search bar visibility
         function toggleSearch() {
             const search = document.getElementById('search-dropdown');
             search.classList.toggle('active');
             if(search.classList.contains('active')) {
-                search.querySelector('input').focus();
+                setTimeout(() => document.getElementById('main-search').focus(), 400);
+            }
+        }
+
+        // FUNCTIONALITY: Leads user to the search result
+        function handleSearch(event) {
+            if (event.key === "Enter") {
+                const query = document.getElementById('main-search').value.trim();
+                if (query) {
+                    // This redirects the user to a search page with their query
+                    window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+                }
             }
         }
     </script>
