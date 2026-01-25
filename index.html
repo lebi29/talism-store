@@ -18,11 +18,10 @@
         /* --- NAVIGATION BAR --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 20px; /* Adjusted padding */
+            padding: 0 20px;
             position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
             background-color: #E9CDCE; /* Pale Sand */
             height: 75px; 
-            border: none; /* Ensuring no nav borders */
         }
         
         .nav-left { flex: 1; display: flex; justify-content: flex-start; }
@@ -32,27 +31,26 @@
         .nav-logo img { height: 32px; width: auto; display: block; } 
         .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 5px; }
 
-        /* --- THEMED DROP-DOWN SEARCH --- */
-        #search-dropdown {
-            position: fixed; top: -100px; left: 0; width: 100%; height: 65px;
-            background: #F4EBEB; z-index: 2999; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%; transition: top 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        #search-dropdown.active { top: 75px; }
-        #search-dropdown input { width: 90%; border: none; outline: none; background: transparent; font-size: 14px; letter-spacing: 2px; }
-
-        /* --- SIDEBAR FIXED: REMOVING THE "DENSE LINE" --- */
+        /* --- SIDEBAR: FIXED TO REMOVE DENSE LINE --- */
         #menu-sb { 
             position: fixed; top: 0; 
-            left: -350px; /* Moved further out to hide shadows/borders completely */
+            left: -320px; /* Fully off-screen */
             width: 300px; height: 100%; 
-            background: #F4EBEB; z-index: 4000; transition: 0.4s ease-in-out; padding: 80px 30px; 
+            background: #F4EBEB; z-index: 4000; 
+            transition: transform 0.4s ease-in-out, visibility 0.4s; 
+            padding: 80px 30px; 
             display: flex; flex-direction: column;
-            border: none; /* Explicitly remove any side borders */
-            box-shadow: none; /* Remove shadow when closed */
+            border: none;
+            box-shadow: none;
+            visibility: hidden; /* THE FIX: Makes it invisible to the browser until opened */
         }
-        /* Only apply shadow when the menu is actually open */
-        #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.15); }
+        
+        /* When open, we make it visible and slide it in using transform for smoothness */
+        #menu-sb.open { 
+            visibility: visible;
+            transform: translateX(320px); 
+            box-shadow: 10px 0 30px rgba(0,0,0,0.15); 
+        }
 
         .sb-link {
             display: block; text-decoration: none; color: #000; font-size: 13px;
@@ -60,6 +58,15 @@
         }
         .sb-link:hover { opacity: 0.5; }
         .sb-divider { border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 20px 0 30px; }
+
+        /* --- SEARCH DROPDOWN --- */
+        #search-dropdown {
+            position: fixed; top: -100px; left: 0; width: 100%; height: 65px;
+            background: #F4EBEB; z-index: 2999; display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; transition: top 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        #search-dropdown.active { top: 75px; }
+        #search-dropdown input { width: 90%; border: none; outline: none; background: transparent; font-size: 14px; letter-spacing: 2px; }
 
         /* --- CONTENT & SPACING --- */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; color: #000; }
