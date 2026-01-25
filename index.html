@@ -4,61 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TALISM | Luxury Brand</title>
-
-    <meta name="description" content="TALISM Store - Premium Modest Fashion and Luxury Perfumes in Tanzania. Shop Stara Clothing and signature fragrances.">
-    <meta name="keywords" content="Talism Store, Stara Clothing, Modest Fashion Tanzania, Luxury Perfume Dar es Salaam, Tanzanian Boutique">
-    <meta name="author" content="TALISM Store">
-
+    
+    <meta name="description" content="TALISM - Luxury Stara Clothing, Minimalist Handbags, and Signature Perfumes.">
+    <meta name="keywords" content="TALISM, Stara Clothing, Luxury Perfume, Handbags, Fashion Brand">
+    <meta name="author" content="TALISM">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #fff; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
         
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background: #fff; 
+        }
+
         /* Navigation Style */
-    nav { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px 5%; 
-    background: transparent; 
-    position: absolute; 
-    width: 90%; 
-    top: 0; 
-    left: 0; 
-    z-index: 100; 
- }
-        .nav-links a { text-decoration: none; color: white; margin-left: 15px; font-size: 14px; text-transform: uppercase; font-weight: 600; }
-        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: transparent;
+            position: absolute;
+            width: 90%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: black; 
+            margin-left: 15px; 
+            font-size: 14px; 
+            font-weight: 600;
+        }
+
         /* Hero Section */
-        .hero { 
-    min-height: 100vh; 
-    width: 100%;
-    background: linear-gradient(135deg, #4366F1, #ec4899); 
-    background-attachment: fixed;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    margin: 0;
-    overflow-x: hidden;
-}
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, #4366F1, #ec4899);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
 
-        .hero h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 2.5rem; /* Reduced from 42px to fit mobile screens */
-    margin: 0 0 10px 0;
-    text-align: center;
-    width: 100%;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem; /* Big luxury headline */
+            margin: 0 0 10px 0;
+            color: black;
+            width: 100%;
+        }
 
-        .btn { margin-top: 30px; padding: 15px 35px; background: white; color: black; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 12px; }
+        .hero p {
+            max-width: 320px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: black;
+            font-weight: 500;
+        }
+
+        /* Product Preview Grid */
+        .product-preview {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 0 10px 40px 10px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.2); /* Glass effect */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 12px;
+            width: 140px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 0.9rem;
+            color: black;
+            margin: 5px 0;
+        }
+
+        .btn { 
+            padding: 18px 40px; 
+            background: black; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo2.png" alt="TALISM Logo" style="height: 40px; width: 70px;">
+            <img src="logo2.png" alt="TALISM Logo" style="height: 45px; width: auto;">
         </a>
         <div class="nav-links">
             <a href="about.html">About</a>
@@ -68,14 +133,22 @@
     </nav>
 
     <header class="hero">
-        <h1>Welcome To Talism Store</h1>
-        <p style="max-width: 280px; margin: 25px auto 35px auto; line-height: 1.6; font-size: 1rem; color: black; font-weight: 500;">
-    Your home for quality fashion and fine fragrances. We provide elegant, modest clothing and long-lasting perfumes made for every occasion.
-</p>
+        <h1>TALISM</h1>
+        
+        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
 
+        <div class="product-preview">
+            <div class="product-card">
+                <img src="perfume.jpg" alt="Perfume">
+                <h3>Fragrances</h3>
+            </div>
+            <div class="product-card">
+                <img src="clothing.jpg" alt="Stara Clothing">
+                <h3>Stara Clothing</h3>
+            </div>
+        </div>
 
-
-        <a href="shop.html" class="btn">Explore Our product   </a>
+        <a href="shop.html" class="btn">Explore Collections</a>
     </header>
 
 </body>
