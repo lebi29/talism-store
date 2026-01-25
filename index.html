@@ -21,48 +21,59 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
         }
-        .nav-logo img { height: 22px; width: auto; }
+        .nav-logo img { height: 20px; width: auto; }
         .nav-links a { 
             text-decoration: none; color: black; margin-left: 20px; 
             font-size: 11px; font-weight: 300; opacity: 0.5; letter-spacing: 1.5px;
         }
 
-        .container {
+        /* Hero Text Area */
+        .hero-text {
             display: flex; flex-direction: column; align-items: center;
-            text-align: center; padding: 120px 0 100px 0;
+            text-align: center; padding: 140px 0 60px 0;
         }
 
         .hero-text h1 { 
             font-family: 'Playfair Display', serif; font-size: 4rem; 
-            margin: 0 0 30px 0; color: black; 
+            margin: 0 0 35px 0; color: black; 
         }
 
         .hero-text p { 
-            max-width: 320px; margin: 0 auto 80px auto; 
+            max-width: 320px; margin: 0 auto 0 auto; 
             line-height: 1.6; font-size: 1.1rem; color: black;
         }
 
-        /* Full Size Media Sections */
-        .full-media {
+        /* FULL SIZE IMAGE SECTION */
+        .section-image {
             width: 100%;
-            height: 80vh; /* High-impact full size */
-            margin-bottom: 120px; /* Large margin to separate image from video */
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            height: 90vh; /* Almost full screen height */
+            margin-top: 80px;
+            margin-bottom: 150px; /* HUGE GAP to separate from video */
+        }
+        .section-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
         }
 
-        .full-media img, .full-media video {
+        /* FULL SIZE VIDEO SECTION */
+        .section-video {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 90vh; /* Almost full screen height */
+            margin-bottom: 150px; /* HUGE GAP to separate from button */
+        }
+        .section-video video {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
         }
 
         /* 4. Heavy Hand Button */
+        .button-area {
+            display: flex; justify-content: center; padding-bottom: 150px;
+        }
         .btn { 
-            padding: 25px 90px; background: black; color: white; 
+            padding: 26px 95px; background: black; color: white; 
             text-decoration: none; border-radius: 60px; font-weight: 600; 
             font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
-            display: inline-block; margin-top: 40px;
         }
     </style>
 </head>
@@ -79,22 +90,22 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="hero-text">
-            <h1>TALISM</h1>
-            <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
-        </div>
+    <div class="hero-text">
+        <h1>TALISM</h1>
+        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+    </div>
 
-        <div class="full-media">
-            <img src="perfume.jpg" alt="Fragrances">
-        </div>
+    <div class="section-image">
+        <img src="perfume.jpg" alt="Fragrances">
+    </div>
 
-        <div class="full-media">
-            <video autoplay loop muted playsinline>
-                <source src="stara-video.mp4" type="video/mp4">
-            </video>
-        </div>
+    <div class="section-video">
+        <video autoplay loop muted playsinline>
+            <source src="stara-video.mp4" type="video/mp4">
+        </video>
+    </div>
 
+    <div class="button-area">
         <a href="shop.html" class="btn">Explore Collections</a>
     </div>
 
