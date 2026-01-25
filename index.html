@@ -14,10 +14,10 @@
             font-family: 'Inter', sans-serif; 
             background: #fff; 
             height: 100%;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* 5. Refined Navigation */
+        /* 5. Navigation: Reduced weight and opacity */
         nav {
             display: flex; 
             justify-content: space-between; 
@@ -32,19 +32,17 @@
 
         /* 1. Smaller Logo Size */
         .nav-logo img {
-            height: 30px; 
+            height: 24px; 
             width: auto;
-            opacity: 0.9;
         }
 
-        /* 5. Reduced weight and opacity for Nav Links */
         .nav-links a { 
             text-decoration: none; 
             color: black; 
             margin-left: 20px; 
-            font-size: 13px; 
-            font-weight: 300; 
-            opacity: 0.7;
+            font-size: 12px; 
+            font-weight: 300; /* Low font weight */
+            opacity: 0.6;    /* Lowered attention */
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -59,10 +57,8 @@
             align-items: center; 
             text-align: center;
             position: relative;
-            background: linear-gradient(135deg, #4366F1, #ec4899); /* Placeholder if video fails */
         }
 
-        /* Video Background */
         .hero-video {
             position: absolute;
             top: 0;
@@ -73,47 +69,53 @@
             z-index: 1;
         }
 
+        /* Soft overlay to ensure readability */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 2;
+        }
+
         .hero-content {
             position: relative;
-            z-index: 2; /* Sits on top of video */
+            z-index: 3;
             padding: 20px;
         }
 
+        /* 2. Headline & Spacing Improvements */
         .hero h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 4.5rem; 
-            margin: 0; 
+            font-size: 4.2rem; 
+            margin: 0 0 35px 0; /* Increased margin bottom */
             color: black; 
             letter-spacing: -2px;
         }
 
-        /* 2. Increased Space (Margin Bottom) */
-        .hero h1 {
-            margin-bottom: 25px; 
-        }
-
         .hero p { 
-            max-width: 350px; 
-            margin: 0 auto 50px auto; 
+            max-width: 340px; 
+            margin: 0 auto 55px auto; 
             line-height: 1.6; 
             font-size: 1.1rem; 
             color: black; 
             font-weight: 400; 
-            opacity: 0.9;
         }
 
         /* 4. Heavy Hand Padding on Button */
         .btn { 
-            padding: 22px 60px; 
+            padding: 24px 75px; /* Large, confident padding */
             background: black; 
             color: white; 
             text-decoration: none; 
-            border-radius: 50px; 
+            border-radius: 60px; 
             font-weight: 600; 
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.4s;
+            letter-spacing: 2.5px;
+            transition: 0.4s ease;
             display: inline-block;
         }
 
@@ -127,7 +129,7 @@
 
     <nav>
         <a href="index.html" class="nav-logo">
-            <img src="logo2.png" alt="TALISM Logo">
+            <img src="logo2.png" alt="TALISM">
         </a>
         <div class="nav-links">
             <a href="about.html">About</a>
@@ -140,6 +142,7 @@
         <video autoplay loop muted playsinline class="hero-video">
             <source src="stara-video.mp4" type="video/mp4">
         </video>
+        <div class="overlay"></div>
 
         <div class="hero-content">
             <h1>TALISM</h1>
@@ -150,4 +153,3 @@
 
 </body>
 </html>
-            
