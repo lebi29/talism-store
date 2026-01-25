@@ -15,17 +15,16 @@
             background-attachment: fixed; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- NAVIGATION BAR FIXED --- */
+        /* --- NAVIGATION BAR --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            /* Added specific side padding to prevent icon cutoff */
-            padding: 0 25px; 
+            padding: 0 20px; /* Adjusted padding */
             position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
             background-color: #E9CDCE; /* Pale Sand */
             height: 75px; 
+            border: none; /* Ensuring no nav borders */
         }
         
-        /* Adjusted flex containers for better spacing */
         .nav-left { flex: 1; display: flex; justify-content: flex-start; }
         .nav-center { flex: 2; display: flex; justify-content: center; }
         .nav-right { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
@@ -36,20 +35,25 @@
         /* --- THEMED DROP-DOWN SEARCH --- */
         #search-dropdown {
             position: fixed; top: -100px; left: 0; width: 100%; height: 65px;
-            background: #F4EBEB; /* Themed Search */
-            z-index: 2999; display: flex; align-items: center; justify-content: space-between;
+            background: #F4EBEB; z-index: 2999; display: flex; align-items: center; justify-content: space-between;
             padding: 0 5%; transition: top 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         #search-dropdown.active { top: 75px; }
         #search-dropdown input { width: 90%; border: none; outline: none; background: transparent; font-size: 14px; letter-spacing: 2px; }
 
-        /* --- SIDEBAR --- */
+        /* --- SIDEBAR FIXED: REMOVING THE "DENSE LINE" --- */
         #menu-sb { 
-            position: fixed; top: 0; left: -350px; width: 300px; height: 100%; 
-            background: #F4EBEB; z-index: 4000; transition: 0.4s; padding: 80px 30px; 
+            position: fixed; top: 0; 
+            left: -350px; /* Moved further out to hide shadows/borders completely */
+            width: 300px; height: 100%; 
+            background: #F4EBEB; z-index: 4000; transition: 0.4s ease-in-out; padding: 80px 30px; 
             display: flex; flex-direction: column;
+            border: none; /* Explicitly remove any side borders */
+            box-shadow: none; /* Remove shadow when closed */
         }
-        #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
+        /* Only apply shadow when the menu is actually open */
+        #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.15); }
+
         .sb-link {
             display: block; text-decoration: none; color: #000; font-size: 13px;
             letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; transition: 0.3s;
