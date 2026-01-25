@@ -34,73 +34,83 @@
         }
 
         .hero-text h1 { 
-            font-family: 'Playfair Display', serif; font-size: 4rem; 
+            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
             margin: 0 0 35px 0; color: black; 
         }
 
         .hero-text p { 
             max-width: 320px; margin: 0 auto 0 auto; 
-            line-height: 1.6; font-size: 1.1rem; color: black;
+            line-height: 1.6; font-size: 1rem; color: black;
         }
 
         /* MEDIA SECTION WRAPPER */
         .section-container {
             position: relative;
             width: 100%;
-            height: 90vh;
+            height: 90vh; 
             margin-bottom: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
         .section-container video, .section-container img {
-            width: 100%; height: 100%; object-fit: cover;
-            display: block;
-        }
-
-        /* TEXT OVERLAY ON MEDIA */
-        .overlay-content {
             position: absolute;
             top: 0; left: 0;
-            width: 100%; height: 100%;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            background: rgba(0, 0, 0, 0.2); /* Soft darkening for readability */
-            color: white;
-            text-align: center;
+            width: 100%; height: 100%; 
+            object-fit: cover;
+            z-index: 1;
         }
 
+        /* TEXT OVERLAY: Centered with massive spacing */
+        .overlay-content {
+            position: relative;
+            z-index: 10; 
+            text-align: center;
+            color: white;
+            width: 90%;
+        }
+
+        /* Increased Bottom Margin for Heading */
         .overlay-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 0 0 10px 0;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            font-size: 3.2rem;
+            margin: 0 0 40px 0; /* Pushes subtitle further down */
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
         }
 
+        /* Increased Bottom Margin for Subtitle */
         .overlay-content p {
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin: 0 0 60px 0; /* Pushes button much further down */
             font-weight: 300;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
-        /* MINI SHOP BUTTONS OVER MEDIA */
+        /* REFINED BUTTON: No white background, just white border and text */
         .mini-btn {
-            padding: 15px 40px;
-            background: white;
-            color: black;
+            display: inline-block;
+            padding: 18px 50px;
+            background: transparent;
+            color: white;
+            border: 1.5px solid white;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s ease;
-        }
-        
-        .mini-btn:hover {
-            background: black;
-            color: white;
+            letter-spacing: 3px;
+            transition: 0.4s ease;
         }
 
-        /* Main Bottom Button Area */
+        .mini-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Bottom Explore Button */
         .button-area {
             display: flex; justify-content: center; padding-bottom: 150px;
         }
@@ -145,7 +155,7 @@
         <div class="overlay-content">
             <h2>Signature Scents</h2>
             <p>Memorable, long-lasting aromas.</p>
-            <a href="shop.html#perfume" class="mini-btn">Shop Fragrances</a>
+            <a href="shop.html#perfumes" class="mini-btn">Shop Fragrances</a>
         </div>
     </div>
 
@@ -155,3 +165,4 @@
 
 </body>
 </html>
+        
