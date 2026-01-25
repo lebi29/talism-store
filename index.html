@@ -34,25 +34,35 @@
         #search-dropdown.active { top: 75px; }
         #search-dropdown input { width: 90%; border: none; outline: none; background: transparent; font-size: 14px; letter-spacing: 2px; }
 
-        /* --- CONTENT & IMPROVED SPACING --- */
+        /* --- CONTENT & SPACING --- */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; color: #000; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
 
         .section { 
             position: relative; width: 100%; height: 80vh; 
-            margin-bottom: 120px; /* INCREASED SPACING: From 40px to 120px for a luxury feel */
+            margin-bottom: 120px; /* Luxury spacing */
             display: flex; justify-content: center; align-items: center; overflow: hidden; 
         }
-        .section video, .section img { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; 
-        }
+        .section video, .section img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 
         .overlay { position: relative; z-index: 10; text-align: center; color: #fff; padding: 20px; }
         .overlay h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 15px; text-shadow: 0 2px 15px rgba(0,0,0,0.4); }
-        .shop-btn { color: #fff; text-decoration: none; border-bottom: 2px solid #fff; padding-bottom: 5px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+        
+        /* Fixed Link Styling */
+        .shop-btn { 
+            color: #fff; text-decoration: none; border-bottom: 2px solid #fff; 
+            padding-bottom: 5px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; 
+            transition: opacity 0.3s;
+        }
+        .shop-btn:hover { opacity: 0.8; }
 
         .explore-area { display: flex; justify-content: center; padding: 20px 0 120px; }
-        .explore-btn { padding: 20px 60px; background: #000; color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 12px; letter-spacing: 2px; }
+        .explore-btn { 
+            padding: 20px 60px; background: #000; color: #fff; text-decoration: none; 
+            border-radius: 50px; font-weight: 600; font-size: 12px; letter-spacing: 2px; 
+            transition: transform 0.2s;
+        }
+        .explore-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
@@ -64,7 +74,7 @@
 
     <nav>
         <div class="nav-left"><button class="icon-btn"><i class="fa-solid fa-bars"></i></button></div>
-        <div class="nav-center"><a href="#" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-center"><a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
         <div class="nav-right">
             <button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
@@ -80,7 +90,7 @@
         <video autoplay loop muted playsinline><source src="stara-video.mp4" type="video/mp4"></video>
         <div class="overlay">
             <h2>Stara Clothing</h2>
-            <a href="#" class="shop-btn">SHOP NOW</a>
+            <a href="shop.html" class="shop-btn">SHOP NOW</a>
         </div>
     </div>
 
@@ -88,12 +98,12 @@
         <img src="perfume.jpg" alt="Fragrance">
         <div class="overlay">
             <h2>Signature Scents</h2>
-            <a href="#" class="shop-btn">SHOP NOW</a>
+            <a href="shop.html" class="shop-btn">SHOP NOW</a>
         </div>
     </div>
 
     <div class="explore-area">
-        <a href="#" class="explore-btn">Explore Collections</a>
+        <a href="shop.html" class="explore-btn">Explore Collections</a>
     </div>
 
     <script>
