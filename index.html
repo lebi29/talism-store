@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TALISM | Luxury Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
@@ -11,23 +12,62 @@
         body, html { 
             margin: 0; padding: 0;
             font-family: 'Inter', sans-serif; 
-            /* THE EXACT COLOR COMBO: Lavender to Pale Sand from Image 2 */
             background: linear-gradient(135deg, #A978C9, #E9CDCE); 
             background-attachment: fixed;
             min-height: 100vh;
         }
 
-        /* Fixed Navigation with About Button */
+        /* --- NEW NAVIGATION STYLE --- */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
-        }
-        .nav-logo img { height: 20px; width: auto; }
-        .nav-links a { 
-            text-decoration: none; color: black; margin-left: 20px; 
-            font-size: 11px; font-weight: 400; opacity: 0.7; letter-spacing: 1.5px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Three equal parts */
+            align-items: center;
+            padding: 15px 5%;
+            position: fixed; /* Keeps nav at top while scrolling */
+            width: 90%; top: 0; z-index: 1000;
+            background: transparent;
         }
 
+        /* Left Side: Hamburger Menu */
+        .menu-trigger {
+            font-size: 20px;
+            cursor: pointer;
+            color: black;
+            justify-self: start;
+        }
+
+        /* Middle: Centered Logo */
+        .nav-logo {
+            justify-self: center;
+        }
+        .nav-logo img {
+            height: 18px; width: auto;
+        }
+
+        /* Right Side: Search & Cart */
+        .nav-icons {
+            justify-self: end;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-icons i {
+            font-size: 18px;
+            color: black;
+            cursor: pointer;
+        }
+
+        /* Hidden Sidebar Menu (Logic for later) */
+        #side-menu {
+            position: fixed; top: 0; left: -250px; width: 250px; height: 100%;
+            background: white; z-index: 2000; transition: 0.4s; padding: 40px 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        #side-menu a {
+            display: block; text-decoration: none; color: black;
+            margin-bottom: 25px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        /* Hero & Content Spacing */
         .hero-text {
             display: flex; flex-direction: column; align-items: center;
             text-align: center; padding: 140px 20px 60px 20px;
@@ -36,17 +76,10 @@
             font-family: 'Playfair Display', serif; font-size: 3.5rem; 
             margin: 0 0 25px 0; color: black; 
         }
-        .hero-text p { 
-            max-width: 320px; line-height: 1.6; font-size: 1rem; color: black;
-        }
 
-        /* Section Containers */
         .section-container {
-            position: relative;
-            width: 100%;
-            height: 80vh; 
-            margin-bottom: 120px; /* Space between the two products */
-            display: flex; justify-content: center; align-items: center;
+            position: relative; width: 100%; height: 80vh; 
+            margin-bottom: 120px; display: flex; justify-content: center; align-items: center;
             overflow: hidden;
         }
         .section-container video, .section-container img {
@@ -54,38 +87,23 @@
             width: 100%; height: 100%; object-fit: cover; z-index: 1;
         }
 
-        /* Spacing for Overlay Content */
         .overlay-content {
             position: relative; z-index: 10; text-align: center; color: white; width: 90%;
         }
         .overlay-content h2 {
-            font-family: 'Playfair Display', serif; font-size: 3.2rem;
-            margin: 0 0 40px 0; /* Gap between Title and Subtitle */
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
-        }
-        .overlay-content p {
-            font-size: 1.1rem; margin: 0 0 60px 0; /* Gap between Subtitle and Button */
-            font-weight: 300; letter-spacing: 2px; text-transform: uppercase;
+            font-family: 'Playfair Display', serif; font-size: 3rem;
+            margin: 0 0 35px 0; text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
         }
 
-        /* Shop Button Style: No white background, just clean underline */
         .mini-btn {
-            display: inline-block;
-            background: transparent;
-            color: white;
-            border: none;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            border-bottom: 2px solid white; 
-            padding-bottom: 8px;
+            display: inline-block; background: transparent; color: white;
+            border: none; text-decoration: none; font-weight: 500;
+            font-size: 13px; text-transform: uppercase; letter-spacing: 4px;
+            border-bottom: 2px solid white; padding-bottom: 8px;
         }
 
-        /* Fixed Explore Collections Area */
         .button-area {
-            display: flex; justify-content: center; padding: 60px 0 150px 0;
+            display: flex; justify-content: center; padding: 40px 0 150px 0;
         }
         .explore-btn { 
             padding: 22px 70px; background: black; color: white; 
@@ -96,19 +114,30 @@
 </head>
 <body>
 
+    <div id="side-menu">
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
     <nav>
+        <div class="menu-trigger" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
         <a href="index.html" class="nav-logo">
             <img src="logo2.png" alt="TALISM">
         </a>
-        <div class="nav-links">
-            <a href="about.html">About</a> <a href="shop.html">Shop</a>
-            <a href="contact.html">Contact</a>
+
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
         </div>
     </nav>
 
     <div class="hero-text">
         <h1>TALISM</h1>
-        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+        <p>Refined fashion and long-lasting fragrances.</p>
     </div>
 
     <div class="section-container">
@@ -118,22 +147,25 @@
         <div class="overlay-content">
             <h2>Stara Clothing</h2>
             <p>Modern modesty, redefined.</p>
-            <a href="shop.html#clothing" class="mini-btn">Shop Now</a>
-        </div>
-    </div>
-
-    <div class="section-container">
-        <img src="perfume.jpg" alt="Fragrances">
-        <div class="overlay-content">
-            <h2>Signature Scents</h2>
-            <p>Memorable, long-lasting aromas.</p>
-            <a href="shop.html#perfumes" class="mini-btn">Shop Now</a>
+            <a href="shop.html" class="mini-btn">Shop Now</a>
         </div>
     </div>
 
     <div class="button-area">
         <a href="shop.html" class="explore-btn">Explore Collections</a>
     </div>
+
+    <script>
+        // Simple function to open/close the menu
+        function toggleMenu() {
+            var menu = document.getElementById("side-menu");
+            if (menu.style.left === "0px") {
+                menu.style.left = "-250px";
+            } else {
+                menu.style.left = "0px";
+            }
+        }
+    </script>
 
 </body>
 </html>
