@@ -15,58 +15,68 @@
             background-attachment: fixed; min-height: 100vh;
         }
 
-        /* --- NAVIGATION BAR --- */
+        /* --- NAVIGATION & DROPDOWN --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
-            background-color: #E9CDCE; /* Pale Sand Color */
+            padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
+            background-color: #E9CDCE; /* Pale Sand */
             height: 75px; 
         }
-        .nav-logo img { height: 30px; width: auto; display: block; }
+        .nav-logo img { height: 32px; width: auto; display: block; }
         .icon-btn { color: #000; font-size: 20px; cursor: pointer; background: none; border: none; }
 
-        /* --- THEMED DROP-DOWN SEARCH BAR --- */
         #search-dropdown {
-            position: fixed; top: -100px; /* Hidden initially */
-            left: 0; width: 100%; height: 65px;
-            background: #F4EBEB; /* Slightly lighter Sand/White combo */
-            z-index: 1999; 
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%;
-            transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: fixed; top: -100px; left: 0; width: 100%; height: 65px;
+            background: #F4EBEB; /* Matches themed search */
+            z-index: 2999; display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; transition: top 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        #search-dropdown.active { top: 75px; /* Sits below nav */ }
-        
-        #search-dropdown input {
-            width: 90%; padding: 10px 0; font-size: 14px; border: none; 
-            outline: none; background: transparent; letter-spacing: 2px;
-            font-family: 'Inter', sans-serif; color: #333;
-        }
-        .close-search { font-size: 18px; cursor: pointer; color: #555; }
+        #search-dropdown.active { top: 75px; }
+        #search-dropdown input { width: 90%; border: none; outline: none; background: transparent; font-size: 14px; letter-spacing: 2px; }
 
-        /* --- OTHER ELEMENTS --- */
-        .hero-text { text-align: center; padding: 180px 20px 80px 20px; }
-        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; }
-        .section { position: relative; width: 100%; height: 80vh; margin-bottom: 60px; overflow: hidden; }
-        .section video, .section img { width: 100%; height: 100%; object-fit: cover; }
+        /* --- RESTORED OVERLAY STYLING --- */
+        .hero-text { text-align: center; padding: 180px 20px 80px 20px; color: #000; }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
+
+        .section { 
+            position: relative; width: 100%; height: 80vh; margin-bottom: 40px; 
+            display: flex; justify-content: center; align-items: center; overflow: hidden; 
+        }
+        .section video, .section img { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; 
+        }
+
+        /* This ensures text appears OVER the video */
+        .overlay { 
+            position: relative; z-index: 10; text-align: center; color: #fff; 
+            padding: 20px;
+        }
+        .overlay h2 { 
+            font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 15px; 
+            text-shadow: 0 2px 15px rgba(0,0,0,0.4); 
+        }
+        .shop-btn { 
+            color: #fff; text-decoration: none; border-bottom: 2px solid #fff; 
+            padding-bottom: 5px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; 
+        }
+
+        .explore-area { display: flex; justify-content: center; padding: 60px 0 100px; }
+        .explore-btn { 
+            padding: 20px 60px; background: #000; color: #fff; text-decoration: none; 
+            border-radius: 50px; font-weight: 600; font-size: 12px; letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
 
     <div id="search-dropdown">
         <input type="text" id="main-search" placeholder="SEARCH TALISM..." onkeypress="handleSearch(event)">
-        <span class="close-search" onclick="toggleSearch()"><i class="fa-solid fa-xmark"></i></span>
+        <span class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-xmark"></i></span>
     </div>
 
     <nav>
-        <div class="nav-left">
-            <button class="icon-btn"><i class="fa-solid fa-bars"></i></button>
-        </div>
-        <div class="nav-center">
-            <a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a>
-        </div>
+        <div class="nav-left"><button class="icon-btn"><i class="fa-solid fa-bars"></i></button></div>
+        <div class="nav-center"><a href="#" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
         <div class="nav-right">
             <button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
@@ -80,6 +90,22 @@
 
     <div class="section">
         <video autoplay loop muted playsinline><source src="stara-video.mp4" type="video/mp4"></video>
+        <div class="overlay">
+            <h2>Stara Clothing</h2>
+            <a href="#" class="shop-btn">SHOP NOW</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="perfume.jpg" alt="Fragrance">
+        <div class="overlay">
+            <h2>Signature Scents</h2>
+            <a href="#" class="shop-btn">SHOP NOW</a>
+        </div>
+    </div>
+
+    <div class="explore-area">
+        <a href="#" class="explore-btn">Explore Collections</a>
     </div>
 
     <script>
@@ -87,18 +113,14 @@
             const search = document.getElementById('search-dropdown');
             search.classList.toggle('active');
             if(search.classList.contains('active')) {
-                setTimeout(() => document.getElementById('main-search').focus(), 400);
+                setTimeout(() => document.getElementById('main-search').focus(), 300);
             }
         }
 
-        // FUNCTIONALITY: Leads user to the search result
         function handleSearch(event) {
             if (event.key === "Enter") {
                 const query = document.getElementById('main-search').value.trim();
-                if (query) {
-                    // This redirects the user to a search page with their query
-                    window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-                }
+                if (query) window.location.href = `search.html?q=${encodeURIComponent(query)}`;
             }
         }
     </script>
