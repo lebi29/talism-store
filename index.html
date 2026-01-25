@@ -11,106 +11,101 @@
         body, html { 
             margin: 0; padding: 0;
             font-family: 'Inter', sans-serif; 
-            /* NEW LUXURY COLOR COMBO: Midnight Navy to Deep Slate */
-            background: linear-gradient(135deg, #0f172a, #1e293b); 
+            /* BACKGROUND: Deep Midnight Navy */
+            background-color: #0a0f1d; 
             background-attachment: fixed;
             min-height: 100vh;
-            color: #f8fafc; /* Soft white text */
+            color: #ffffff;
         }
 
+        /* Nav & Logo */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; position: absolute; width: 90%; top: 0; z-index: 100;
         }
-        /* Logo and links adjusted for dark background */
-        .nav-logo img { height: 20px; width: auto; filter: invert(1); }
+        /* Inverts logo color to white for the dark background */
+        .nav-logo img { height: 22px; width: auto; filter: invert(1); }
         .nav-links a { 
             text-decoration: none; color: white; margin-left: 20px; 
-            font-size: 11px; font-weight: 300; opacity: 0.7; letter-spacing: 1.5px;
+            font-size: 11px; font-weight: 300; opacity: 0.8; letter-spacing: 2px;
         }
 
+        /* Top Header Area */
         .hero-text {
             display: flex; flex-direction: column; align-items: center;
-            text-align: center; padding: 140px 0 60px 0;
+            text-align: center; padding: 160px 0 80px 0;
         }
         .hero-text h1 { 
-            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
-            margin: 0 0 35px 0; color: #f1f5f9; 
+            font-family: 'Playfair Display', serif; font-size: 3.8rem; 
+            margin: 0 0 40px 0; color: white; letter-spacing: 4px;
         }
         .hero-text p { 
-            max-width: 320px; margin: 0 auto; line-height: 1.6; font-size: 1rem; color: #cbd5e1;
+            max-width: 340px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem; color: #cbd5e1;
         }
 
+        /* Media Sections */
         .section-container {
             position: relative;
             width: 100%;
-            height: 90vh; 
-            margin-bottom: 180px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height: 85vh; 
+            margin-bottom: 220px; /* Massive gap to prevent words from being close */
+            display: flex; justify-content: center; align-items: center;
             overflow: hidden;
         }
         .section-container video, .section-container img {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%; 
-            object-fit: cover;
-            z-index: 1;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; object-fit: cover; z-index: 1;
         }
 
+        /* Overlay Text Spacing */
         .overlay-content {
-            position: relative;
-            z-index: 10; 
-            text-align: center;
-            color: white;
-            width: 90%;
+            position: relative; z-index: 10; text-align: center; width: 90%;
         }
 
         .overlay-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
-            margin: 0 0 70px 0;
-            text-shadow: 2px 2px 25px rgba(0,0,0,0.7);
+            font-size: 3.5rem;
+            margin: 0 0 85px 0; /* Massive bottom margin for Title */
+            text-shadow: 0px 4px 20px rgba(0,0,0,0.6);
         }
 
         .overlay-content p {
             font-size: 1.2rem;
-            margin: 0 0 100px 0;
+            margin: 0 0 115px 0; /* Massive bottom margin for Subtitle */
             font-weight: 300;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
-        /* ROSE GOLD ACCENT: Underlined button */
+        /* SHOP BUTTON: Transparent, Rose Gold Color, Underline Style */
         .mini-btn {
             display: inline-block;
-            background: transparent;
-            color: #fda4af; /* Soft Rose Pink color */
-            border: none;
+            background: transparent; /* No white background */
+            color: #e2a89b; /* Rose Gold/Pink color for text */
+            border: none; /* No boundary/border */
             text-decoration: none;
             font-weight: 500;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            border-bottom: 2px solid #fda4af; /* Rose gold underline */
-            padding-bottom: 8px;
-            transition: 0.3s ease;
+            letter-spacing: 5px;
+            border-bottom: 1px solid #e2a89b; /* Elegant Rose Gold underline */
+            padding-bottom: 10px;
+            transition: 0.4s ease;
         }
-
         .mini-btn:hover {
             color: white;
             border-bottom-color: white;
-            letter-spacing: 6px;
+            letter-spacing: 7px;
         }
 
+        /* Bottom Action Button */
         .button-area {
             display: flex; justify-content: center; padding-bottom: 150px;
         }
         .btn { 
-            padding: 26px 95px; background: white; color: black; 
-            text-decoration: none; border-radius: 60px; font-weight: 600; 
-            font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
+            padding: 24px 80px; background: white; color: black; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; 
+            font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
         }
     </style>
 </head>
