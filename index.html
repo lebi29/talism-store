@@ -15,20 +15,28 @@
             background-attachment: fixed; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- NAVIGATION BAR --- */
+        /* --- NAVIGATION BAR FIXED --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
+            /* Added specific side padding to prevent icon cutoff */
+            padding: 0 25px; 
+            position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
             background-color: #E9CDCE; /* Pale Sand */
             height: 75px; 
         }
-        .nav-logo img { height: 32px; width: auto; display: block; } /* Larger Logo */
-        .icon-btn { color: #000; font-size: 20px; cursor: pointer; background: none; border: none; }
+        
+        /* Adjusted flex containers for better spacing */
+        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
+        .nav-center { flex: 2; display: flex; justify-content: center; }
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
+
+        .nav-logo img { height: 32px; width: auto; display: block; } 
+        .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 5px; }
 
         /* --- THEMED DROP-DOWN SEARCH --- */
         #search-dropdown {
             position: fixed; top: -100px; left: 0; width: 100%; height: 65px;
-            background: #F4EBEB; /* Themed Search Background */
+            background: #F4EBEB; /* Themed Search */
             z-index: 2999; display: flex; align-items: center; justify-content: space-between;
             padding: 0 5%; transition: top 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
@@ -38,8 +46,7 @@
         /* --- SIDEBAR --- */
         #menu-sb { 
             position: fixed; top: 0; left: -350px; width: 300px; height: 100%; 
-            background: #F4EBEB; /* Matches the Sand/White combo */
-            z-index: 4000; transition: 0.4s; padding: 80px 30px; 
+            background: #F4EBEB; z-index: 4000; transition: 0.4s; padding: 80px 30px; 
             display: flex; flex-direction: column;
         }
         #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
@@ -53,7 +60,7 @@
         /* --- CONTENT & SPACING --- */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; color: #000; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
-        .hero-text p { font-size: 0.9rem; max-width: 300px; margin: 10px auto 0; line-height: 1.6; }
+        .hero-text p { font-size: 0.9rem; max-width: 320px; margin: 15px auto 0; line-height: 1.6; }
 
         .section { 
             position: relative; width: 100%; height: 80vh; 
