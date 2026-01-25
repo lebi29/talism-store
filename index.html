@@ -5,33 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TALISM | Luxury Brand</title>
     
-    <meta name="description" content="TALISM - Luxury Stara Clothing and Signature Perfumes in Tanzania.">
-    <meta name="keywords" content="TALISM, Stara Clothing, Luxury Perfume, Tanzania Fashion">
-    <meta name="author" content="TALISM">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
         
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background: #fff; 
-            overflow-x: hidden;
-        }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: #fff; overflow-x: hidden; }
 
-        /* Navigation */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: transparent;
-            position: absolute;
-            width: 90%;
-            top: 0;
-            left: 0;
-            z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: transparent; position: absolute;
+            width: 90%; top: 0; left: 0; z-index: 100;
         }
 
-        .nav-links a { 
-            text-
+        .nav-links a { text-decoration: none; color: black; margin-left: 15px; font-size: 14px; font-weight: 600; }
+
+        .hero {
+            min-height: 100vh; width: 100%;
+            background: linear-gradient(135deg, #4366F1, #ec4899);
+            background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 40px 0;
+        }
+
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 0 0 10px 0; color: black; }
+
+        .hero p { max-width: 320px; margin: 0 auto 40px auto; line-height: 1.6; font-size: 1.1rem; color: black; font-weight: 500; }
+
+        .product-preview { display: flex; justify-content: center; gap: 15px; padding: 0 10px 40px 10px; flex-wrap: wrap; }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 15px;
+            padding: 12px; width: 140px; text-align: center;
+        }
+
+        .product-card img, .product-card video {
+            width: 100%; height: 150px; border-radius: 10px; object-fit: cover; margin-bottom: 8px;
+        }
+
+        .product-card h3 { font-size: 0.9rem; color: black; margin: 5px 0; }
+
+        .btn { 
+            padding: 18px 40px; background: black; color: white; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">
+            <img src="logo2.png" alt="TALISM Logo" style="height: 45px; width: auto;">
+        </a>
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>TALISM</h1>
+        <p>Refined fashion and long-lasting fragrances, crafted for everyday elegance.</p>
+
+        <div class="product-preview">
+            <div class="product-card">
+                <img src="perfume.jpg" alt="Fragrances">
+                <h3>Fragrances</h3>
+            </div>
+            <div class="product-card">
+                <video autoplay loop muted playsinline>
+                    <source src="stara-video.mp4" type="video/mp4">
+                </video>
+                <h3>Stara Clothing</h3>
+            </div>
+        </div>
+
+        <a href="shop.html" class="btn">Explore Collections</a>
+    </header>
+
+</body>
+</html>
