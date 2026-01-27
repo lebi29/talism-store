@@ -3,62 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TALISM | Shop Our Collection</title>
+    <title>TALISM | Shop Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
         
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #F4EBEB; color: #333; }
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background-color: #F4EBEB; 
+            color: #333;
+        }
 
-        /* --- TOOLBAR --- */
+        /* --- NAVIGATION BAR --- */
         nav {
-            display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: center;
-            padding: 0 15px; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
-            background-color: #E9CDCE; height: 75px; 
+            display: grid; 
+            grid-template-columns: 1fr 2fr 1fr; 
+            align-items: center;
+            padding: 0 15px; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 3000;
+            background-color: #E9CDCE; 
+            height: 75px; 
         }
         .nav-center { display: flex; justify-content: center; }
-        .nav-logo img { height: 32px; width: auto; } 
+        .nav-logo img { height: 32px; width: auto; display: block; } 
         .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 5px; }
 
-        /* --- SEARCH OVERLAY --- */
+        /* --- SEARCH BAR (APPEARS BELOW NAV) --- */
         #search-bar {
-            position: fixed; top: -100px; left: 0; width: 100%; height: 75px;
-            background: #fff; z-index: 4000; transition: 0.4s;
-            display: flex; align-items: center; padding: 0 20px; box-sizing: border-box;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: fixed; 
+            top: 75px; /* Inatokea pale navbar inapoishia */
+            left: 0; 
+            width: 100%; 
+            height: 65px;
+            background: #fff; 
+            z-index: 2500; 
+            display: none; 
+            align-items: center; 
+            padding: 0 20px; 
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #eee;
         }
-        #search-bar.active { top: 0; }
+        #search-bar.active { 
+            display: flex; 
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
         #search-bar input {
-            flex: 1; border: none; outline: none; font-size: 16px; padding: 10px;
+            flex: 1; border: none; outline: none; font-size: 16px; padding: 10px; color: #000;
         }
-        .close-search { font-size: 24px; cursor: pointer; margin-left: 15px; }
+        .close-search { font-size: 24px; cursor: pointer; color: #999; margin-left: 15px; }
 
-        /* --- CONTENT STYLING --- */
+        /* --- SIDEBAR --- */
+        #menu-sb { 
+            position: fixed; top: 0; left: -100%; width: 280px; height: 100%; 
+            background: #F4EBEB; z-index: 4000; transition: 0.4s; 
+            padding: 80px 25px; display: flex; flex-direction: column; 
+        }
+        #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
+        .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
+
+        /* --- CONTENT --- */
         header { text-align: center; padding: 130px 20px 40px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 100px; }
-        .card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        .product-img { width: 100%; height: 350px; object-fit: cover; }
-        .card-info { padding: 25px; }
-        .wa-order-btn { display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; }
+        header p { font-size: 0.85rem; color: #666; letter-spacing: 1px; margin-top: 5px; }
 
-        #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 3500; display: none; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            padding: 0 20px 100px; 
+        }
+        .card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04); 
+            text-align: center;
+        }
+        .product-img { width: 100%; height: 320px; object-fit: cover; background: #fafafa; }
+        .card-info { padding: 20px; }
+        .card-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 0 0 8px 0; }
+        .price { color: #A978C9; font-weight: 600; display: block; margin-bottom: 15px; }
+
+        .wa-order-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2000; display: none; }
+        footer { text-align: center; padding: 40px; font-size: 10px; opacity: 0.5; }
     </style>
 </head>
 <body>
 
+    <div id="mask" onclick="closeAll()"></div>
+
     <div id="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass" style="color: #999;"></i>
         <input type="text" placeholder="Search for perfumes, clothing..." id="search-input">
         <span class="close-search" onclick="toggleSearch()">&times;</span>
     </div>
 
-    <div id="mask" onclick="toggleSearch()"></div>
+    <div id="menu-sb">
+        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeAll()">&times;</span>
+        <a href="index.html" class="sb-link">HOME</a>
+        <a href="shop.html" class="sb-link">SHOP COLLECTION</a>
+        <a href="https://wa.me/255684143537" class="sb-link">CONTACT US</a>
+    </div>
 
     <nav>
-        <div class="nav-left"><button class="icon-btn"><i class="fa-solid fa-bars"></i></button></div>
+        <div class="nav-left">
+            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
         <div class="nav-center">
-            <a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a>
+            <a href="index.html" class="nav-logo">
+                <img src="logo2.png" alt="TALISM">
+            </a>
         </div>
         <div class="nav-right">
             <button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -75,19 +152,47 @@
             <img src="stara-image.jpg" alt="Stara Clothing" class="product-img">
             <div class="card-info">
                 <h3>Stara Clothing</h3>
-                <span style="color:#A978C9; font-weight:600;">TZS 85,000</span><br><br>
-                <a href="https://wa.me/255684143537" class="wa-order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                <span class="price">TZS 85,000</span>
+                <a href="https://wa.me/255684143537?text=Habari%20TALISM,%20nahitaji%20kuagiza%20Stara%20Clothing." class="wa-order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="perfume.jpg" alt="Signature Scents" class="product-img">
+            <div class="card-info">
+                <h3>Signature Scents</h3>
+                <span class="price">TZS 65,000</span>
+                <a href="https://wa.me/255684143537?text=Habari%20TALISM,%20nahitaji%20kuagiza%20Signature%20Scent%20Perfume." class="wa-order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
             </div>
         </div>
     </div>
+
+    <footer>
+        &copy; 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.
+    </footer>
 
     <script>
         function toggleSearch() {
             const searchBar = document.getElementById('search-bar');
             const mask = document.getElementById('mask');
-            searchBar.classList.toggle('active');
-            mask.style.display = searchBar.classList.contains('active') ? 'block' : 'none';
-            if(searchBar.classList.contains('active')) document.getElementById('search-input').focus();
+            const isOpen = searchBar.classList.toggle('active');
+            mask.style.display = isOpen ? 'block' : 'none';
+            if(isOpen) document.getElementById('search-input').focus();
+        }
+
+        function openMenu() {
+            document.getElementById('menu-sb').classList.add('open');
+            document.getElementById('mask').style.display = 'block';
+        }
+
+        function closeAll() {
+            document.getElementById('menu-sb').classList.remove('open');
+            document.getElementById('search-bar').classList.remove('active');
+            document.getElementById('mask').style.display = 'none';
         }
     </script>
 </body>
