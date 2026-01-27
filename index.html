@@ -40,7 +40,6 @@
         }
         #menu-sb.open { visibility: visible; transform: translateX(320px); box-shadow: 10px 0 30px rgba(0,0,0,0.15); }
         .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
-        .sb-divider { border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 20px 0 30px; }
 
         /* --- CONTENT STYLING --- */
         .hero-text { text-align: center; padding: 180px 20px 80px 20px; color: #000; }
@@ -61,21 +60,15 @@
         .explore-area { display: flex; justify-content: center; padding: 20px 0 120px; }
         .explore-btn { padding: 20px 60px; background: #000; color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 12px; letter-spacing: 2px; }
 
-        /* --- FOOTER STYLING --- */
-        .talism-footer { background-color: #F4EBEB; padding: 60px 20px; text-align: center; color: #000; }
-        .footer-community h3 { letter-spacing: 3px; font-size: 14px; margin-bottom: 15px; }
-        .footer-community p { font-size: 13px; margin-bottom: 20px; color: #555; }
-        .signup-container { display: flex; justify-content: center; max-width: 400px; margin: 0 auto 40px; }
-        .signup-container input { padding: 12px; border: 1px solid #ccc; width: 70%; outline: none; }
-        .signup-container button { background: #000; color: #fff; border: none; padding: 12px 20px; cursor: pointer; letter-spacing: 1px; font-weight: 600; }
+        /* --- FOOTER STYLING (ADJUSTED) --- */
+        .talism-footer { background-color: #F4EBEB; padding: 80px 20px; text-align: center; color: #000; }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; }
+        .footer-col { margin: 20px; min-width: 250px; }
+        .footer-col h4 { font-size: 12px; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; font-weight: 600; }
+        .footer-col p, .footer-col a { display: block; font-size: 13px; color: #333; text-decoration: none; margin-bottom: 12px; line-height: 1.6; }
         
-        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1100px; margin: 0 auto; text-align: left; }
-        .footer-col { margin: 20px; min-width: 200px; }
-        .footer-col h4 { font-size: 12px; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
-        .footer-col p, .footer-col a { display: block; font-size: 13px; color: #333; text-decoration: none; margin-bottom: 10px; line-height: 1.6; }
-        
-        .social-icons { margin-top: 40px; }
-        .social-icons a { margin: 0 15px; font-size: 20px; color: #000; transition: opacity 0.3s; }
+        .social-icons { margin-top: 20px; }
+        .social-icons a { margin-right: 20px; font-size: 20px; color: #000; transition: opacity 0.3s; }
         .social-icons a:hover { opacity: 0.6; }
 
         #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 3500; display: none; }
@@ -91,7 +84,7 @@
         <a href="#" class="sb-link">STARA CLOTHING</a>
         <a href="#" class="sb-link">SIGNATURE SCENTS</a>
         <a href="#" class="sb-link">ACCESSORIES</a>
-        <hr class="sb-divider">
+        <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 20px 0 30px;">
         <a href="#" class="sb-link">ABOUT TALISM</a>
         <a href="#" class="sb-link">OUR CRAFTSMANSHIP</a>
     </div>
@@ -123,15 +116,6 @@
     <div class="explore-area"><a href="#" class="explore-btn">Explore Collections</a></div>
 
     <footer class="talism-footer">
-        <div class="footer-community">
-            <h3>JOIN OUR COMMUNITY</h3>
-            <p>Exclusive offers and sneak peeks are reserved for those on our mailing list.</p>
-            <div class="signup-container">
-                <input type="email" placeholder="ENTER YOUR EMAIL">
-                <button>SIGN UP</button>
-            </div>
-        </div>
-
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Information</h4>
@@ -139,22 +123,23 @@
                 <a href="#">About Us</a>
                 <a href="#">Customer Care</a>
             </div>
+            
             <div class="footer-col">
                 <h4>Get In Touch</h4>
                 <p><strong>Email:</strong> talismstore@gmail.com</p> <p><strong>WhatsApp:</strong> +255 [Weka Namba]</p>
                 <p><strong>Location:</strong> Dar es Salaam, Tanzania</p>
             </div>
+            
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
                 </div>
             </div>
         </div>
-        <p style="font-size: 11px; margin-top: 50px; opacity: 0.5;">© 2026 TALISM Luxury Store. All Rights Reserved.</p>
+        <p style="font-size: 11px; margin-top: 60px; opacity: 0.5; letter-spacing: 1px;">© 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
