@@ -8,146 +8,66 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
         
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background-color: #F4EBEB; 
-            color: #333;
-        }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #F4EBEB; color: #333; }
 
-        /* --- NAVIGATION BAR --- */
+        /* --- NAVIGATION --- */
         nav {
-            display: grid; 
-            grid-template-columns: 1fr 2fr 1fr; 
-            align-items: center;
-            padding: 0 10px; /* Nimepunguza padding ili kuruhusu icons kusogea pembeni zaidi */
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            z-index: 3000;
-            background-color: #E9CDCE; /* Rangi ya pink kulingana na picha */
-            height: 75px; 
+            display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: center;
+            padding: 0 10px; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
+            background-color: #E9CDCE; height: 75px; 
         }
-        .nav-left { display: flex; justify-content: flex-start; padding-left: 5px; }
+        .nav-left { display: flex; justify-content: flex-start; }
         .nav-center { display: flex; justify-content: center; }
-        .nav-right { display: flex; justify-content: flex-end; padding-right: 5px; } /* Hapa icon inasukumwa kulia zaidi */
-        
-        .nav-logo img { height: 32px; width: auto; display: block; } 
-        
-        .icon-btn { 
-            color: #000; 
-            font-size: 22px; 
-            cursor: pointer; 
-            background: none; 
-            border: none; 
-            padding: 10px; /* Padding ya ndani ya button */
-        }
+        .nav-right { display: flex; justify-content: flex-end; }
+        .nav-logo img { height: 32px; width: auto; } 
+        .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 10px; }
 
-        /* --- SEARCH BAR (APPEARS BELOW NAV) --- */
+        /* --- SEARCH BAR --- */
         #search-bar {
-            position: fixed; 
-            top: 75px; 
-            left: 0; 
-            width: 100%; 
-            height: 65px;
-            background: #fff; 
-            z-index: 2500; 
-            display: none; 
-            align-items: center; 
-            padding: 0 20px; 
-            box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-bottom: 1px solid #eee;
+            position: fixed; top: 75px; left: 0; width: 100%; height: 65px;
+            background: #fff; z-index: 2500; display: none; align-items: center; 
+            padding: 0 20px; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
-        #search-bar.active { 
-            display: flex; 
-            animation: slideDown 0.3s ease-out;
-        }
-        @keyframes slideDown {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        #search-bar input {
-            flex: 1; border: none; outline: none; font-size: 16px; padding: 10px; color: #000;
-        }
-        .close-search { font-size: 24px; cursor: pointer; color: #999; margin-left: 15px; }
+        #search-bar.active { display: flex; animation: slideDown 0.3s ease-out; }
+        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        #search-bar input { flex: 1; border: none; outline: none; font-size: 16px; padding: 10px; }
 
-        /* --- SIDEBAR --- */
-        #menu-sb { 
-            position: fixed; top: 0; left: -100%; width: 280px; height: 100%; 
-            background: #F4EBEB; z-index: 4000; transition: 0.4s; 
-            padding: 80px 25px; display: flex; flex-direction: column; 
-        }
-        #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
-        .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
-
-        /* --- CONTENT --- */
+        /* --- SHOP CONTENT --- */
         header { text-align: center; padding: 130px 20px 40px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; }
-        header p { font-size: 0.85rem; color: #666; letter-spacing: 1px; margin-top: 5px; }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            padding: 0 20px 100px; 
-        }
-        .card { 
-            background: #fff; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04); 
-            text-align: center;
-        }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px 60px; }
+        .card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.04); text-align: center; }
         .product-img { width: 100%; height: 320px; object-fit: cover; }
         .card-info { padding: 20px; }
-        .wa-order-btn {
-            display: inline-block;
-            background-color: #25D366; /* Rangi ya WhatsApp */
-            color: white;
-            text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+        .wa-order-btn { display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 10px 22px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+
+        /* --- FOOTER --- */
+        .talism-footer { background-color: #F4EBEB; padding: 60px 10%; text-align: left; color: #000; border-top: 1px solid rgba(0,0,0,0.05); }
+        .footer-col { margin-bottom: 40px; }
+        .footer-col h4 { font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.1); width: fit-content; padding-bottom: 5px; }
+        .footer-col a, .footer-col p { display: block; font-size: 13px; color: #333; text-decoration: none; margin-bottom: 12px; }
+        .social-icons { display: flex; gap: 20px; margin-top: 15px; }
+        .social-icons a { font-size: 22px; color: #000; }
+        .copyright { font-size: 10px; margin-top: 40px; opacity: 0.4; letter-spacing: 1px; text-align: center; width: 100%; }
 
         #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2000; display: none; }
-        footer { text-align: center; padding: 40px; font-size: 10px; opacity: 0.5; }
     </style>
 </head>
 <body>
 
-    <div id="mask" onclick="closeAll()"></div>
+    <div id="mask" onclick="toggleSearch()"></div>
+
+    <nav>
+        <div class="nav-left"><button class="icon-btn"><i class="fa-solid fa-bars"></i></button></div>
+        <div class="nav-center"><a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-right"><button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+    </nav>
 
     <div id="search-bar">
         <i class="fa-solid fa-magnifying-glass" style="color: #999;"></i>
         <input type="text" placeholder="Search for perfumes, clothing..." id="search-input">
-        <span class="close-search" onclick="toggleSearch()">&times;</span>
+        <span onclick="toggleSearch()" style="cursor:pointer; font-size: 20px;">&times;</span>
     </div>
-
-    <div id="menu-sb">
-        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeAll()">&times;</span>
-        <a href="index.html" class="sb-link">HOME</a>
-        <a href="shop.html" class="sb-link">SHOP COLLECTION</a>
-        <a href="https://wa.me/255684143537" class="sb-link">CONTACT US</a>
-    </div>
-
-    <nav>
-        <div class="nav-left">
-            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
-        </div>
-        <div class="nav-center">
-            <a href="index.html" class="nav-logo">
-                <img src="logo2.png" alt="TALISM">
-            </a>
-        </div>
-        <div class="nav-right">
-            <button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </nav>
 
     <header>
         <h1>Our Collection</h1>
@@ -159,34 +79,47 @@
             <img src="stara-image.jpg" alt="Stara Clothing" class="product-img">
             <div class="card-info">
                 <h3>Stara Clothing</h3>
-                <span style="color:#A978C9; font-weight:600;">TZS 85,000</span><br><br>
+                <span style="color:#A978C9; font-weight:600; display:block; margin-bottom:15px;">TZS 85,000</span>
                 <a href="https://wa.me/255684143537" class="wa-order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
             </div>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.
+    <footer class="talism-footer">
+        <div class="footer-col">
+            <h4>Information</h4>
+            <a href="#">Delivery & Returns</a>
+            <a href="#">About Us</a>
+            <a href="#">Customer Care</a>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <p>Email: talismstore@gmail.com</p>
+            <p>WhatsApp: +255 684 143 537</p>
+            <p>Location: Dar es Salaam, Tanzania</p>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/255684143537"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-solid fa-tower-broadcast"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
         function toggleSearch() {
-            const searchBar = document.getElementById('search-bar');
-            const mask = document.getElementById('mask');
-            const isOpen = searchBar.classList.toggle('active');
-            mask.style.display = isOpen ? 'block' : 'none';
-            if(isOpen) document.getElementById('search-input').focus();
-        }
-
-        function openMenu() {
-            document.getElementById('menu-sb').classList.add('open');
-            document.getElementById('mask').style.display = 'block';
-        }
-
-        function closeAll() {
-            document.getElementById('menu-sb').classList.remove('open');
-            document.getElementById('search-bar').classList.remove('active');
-            document.getElementById('mask').style.display = 'none';
+            const sb = document.getElementById('search-bar');
+            const m = document.getElementById('mask');
+            const active = sb.classList.toggle('active');
+            m.style.display = active ? 'block' : 'none';
+            if(active) document.getElementById('search-input').focus();
         }
     </script>
 </body>
