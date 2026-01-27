@@ -1,37 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TALISM | Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TALISM | Shop Our Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
-        body { margin: 0; font-family: 'Inter', sans-serif; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid #eee; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 22px; text-decoration: none; color: #000; font-weight: bold; }
-        .nav-links a { text-decoration: none; color: #666; margin-left: 15px; font-size: 11px; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px; }
-        .card { border: 1px solid #eee; padding: 30px; border-radius: 15px; text-align: center; }
-        .card h3 { font-family: 'Playfair Display', serif; margin: 10px 0; }
-        .price { color: #ec4899; font-weight: bold; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background-color: #F4EBEB; 
+            color: #333;
+        }
+
+        /* --- NAVIGATION --- */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 5%; 
+            background: #E9CDCE; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        .nav-logo img { height: 35px; width: auto; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #000; 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            margin-left: 15px;
+        }
+
+        header { text-align: center; padding: 60px 20px 40px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        header p { font-size: 0.9rem; color: #666; letter-spacing: 1px; }
+
+        /* --- PRODUCT GRID --- */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            padding: 0 5% 100px; 
+        }
+
+        .card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        .product-img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
+            background-color: #eee;
+        }
+
+        .card-info { padding: 25px; }
+        .card-info h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.4rem; 
+            margin: 0 0 10px 0; 
+        }
+        .price { 
+            display: block;
+            color: #A978C9; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .wa-order-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+        .wa-order-btn i { margin-right: 8px; font-size: 16px; }
+        .wa-order-btn:hover { background-color: #128C7E; }
+
+        footer { text-align: center; padding: 40px; font-size: 10px; opacity: 0.5; letter-spacing: 1px; }
     </style>
 </head>
 <body>
-    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: white; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 100;">
-    <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-        <img src="logo.png" alt="TALISM Logo" style="height: 45px; width: auto;">
-    </a>
 
-    <div style="display: flex; gap: 12px;">
-        <a href="index.html" style="text-decoration: none; color: #555; font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Home</a>
-        <a href="about.html" style="text-decoration: none; color: #555; font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">About</a>
-        <a href="shop.html" style="text-decoration: none; color: #555; font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Shop</a>
-        <a href="contact.html" style="text-decoration: none; color: #555; font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Contact</a>
-    </div>
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="logo2.png" alt="TALISM Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="https://wa.me/255684143537">Contact</a>
+        </div>
     </nav>
+
+    <header>
+        <h1>Our Collection</h1>
+        <p>Elegance in every detail.</p>
+    </header>
+
     <div class="grid">
-        <div class="card"><h3>Stara Clothing</h3><p class="price">$120</p></div>
-        <div class="card"><h3>Minimalist Bags</h3><p class="price">$250</p></div>
-        <div class="card" style="background:#111; color:#fff;"><h3>Luxury Perfumes</h3><p class="price">$85</p></div>
+        <div class="card">
+            <img src="stara-image.jpg" alt="Stara Clothing" class="product-img">
+            <div class="card-info">
+                <h3>Stara Clothing</h3>
+                <span class="price">TZS 85,000</span>
+                <a href="https://wa.me/255684143537?text=Habari%20TALISM,%20nahitaji%20kuagiza%20Stara%20Clothing." class="wa-order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="perfume.jpg" alt="Signature Scents" class="product-img">
+            <div class="card-info">
+                <h3>Signature Scents</h3>
+                <span class="price">TZS 65,000</span>
+                <a href="https://wa.me/255684143537?text=Habari%20TALISM,%20nahitaji%20kuagiza%20Signature%20Scent%20Perfume." class="wa-order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="accessory.jpg" alt="Accessories" class="product-img">
+            <div class="card-info">
+                <h3>Minimalist Accessories</h3>
+                <span class="price">TZS 45,000</span>
+                <a href="https://wa.me/255684143537?text=Habari%20TALISM,%20nahitaji%20kuona%20Accessories%20zenu." class="wa-order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.
+    </footer>
+
 </body>
 </html>
