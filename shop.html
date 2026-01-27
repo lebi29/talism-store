@@ -15,30 +15,46 @@
             color: #333;
         }
 
-        /* --- NAVIGATION --- */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 15px 5%; 
-            background: #E9CDCE; 
-            border-bottom: 1px solid rgba(0,0,0,0.05); 
-            position: sticky; 
+        /* --- TOOLBAR RE-DESIGNED (HOME STYLE) --- */
+        nav {
+            display: grid; 
+            grid-template-columns: 1fr 2fr 1fr; 
+            align-items: center;
+            padding: 0 15px; 
+            position: fixed; 
             top: 0; 
-            z-index: 100; 
+            left: 0; 
+            right: 0; 
+            z-index: 3000;
+            background-color: #E9CDCE; /* Rangi ile ile ya pink ya nyumbani */
+            height: 75px; 
         }
-        .nav-logo img { height: 35px; width: auto; }
-        .nav-links a { 
-            text-decoration: none; 
+        .nav-left { display: flex; justify-content: flex-start; }
+        .nav-center { display: flex; justify-content: center; }
+        .nav-right { display: flex; justify-content: flex-end; }
+        
+        /* Logo Styling */
+        .nav-logo img { height: 32px; width: auto; display: block; } 
+        
+        .icon-btn { 
             color: #000; 
-            font-size: 10px; 
-            text-transform: uppercase; 
-            font-weight: 700; 
-            letter-spacing: 1px; 
-            margin-left: 15px;
+            font-size: 22px; 
+            cursor: pointer; 
+            background: none; 
+            border: none; 
+            padding: 5px; 
         }
 
-        header { text-align: center; padding: 60px 20px 40px; }
+        /* --- SIDEBAR --- */
+        #menu-sb { 
+            position: fixed; top: 0; left: -100%; width: 280px; height: 100%; 
+            background: #F4EBEB; z-index: 4000; transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            padding: 80px 25px; display: flex; flex-direction: column; 
+        }
+        #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
+        .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
+
+        header { text-align: center; padding: 130px 20px 40px; } /* Padding imeongezwa ili isifichwe na navbar */
         header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
         header p { font-size: 0.9rem; color: #666; letter-spacing: 1px; }
 
@@ -57,7 +73,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
             transition: transform 0.3s ease;
             text-align: center;
-            border: 1px solid rgba(0,0,0,0.03);
         }
         .card:hover { transform: translateY(-5px); }
 
@@ -69,18 +84,8 @@
         }
 
         .card-info { padding: 25px; }
-        .card-info h3 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.4rem; 
-            margin: 0 0 10px 0; 
-        }
-        .price { 
-            display: block;
-            color: #A978C9; 
-            font-weight: 600; 
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+        .card-info h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 0 0 10px 0; }
+        .price { display: block; color: #A978C9; font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; }
 
         .wa-order-btn {
             display: inline-block;
@@ -89,28 +94,38 @@
             text-decoration: none;
             padding: 12px 25px;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: background 0.3s;
         }
-        .wa-order-btn i { margin-right: 8px; font-size: 16px; }
-        .wa-order-btn:hover { background-color: #128C7E; }
 
-        footer { text-align: center; padding: 40px; font-size: 10px; opacity: 0.5; letter-spacing: 1px; }
+        #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 3500; display: none; }
+        footer { text-align: center; padding: 40px; font-size: 10px; opacity: 0.5; }
     </style>
 </head>
 <body>
 
+    <div id="mask" onclick="closeMenu()"></div>
+
+    <div id="menu-sb">
+        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeMenu()">&times;</span>
+        <a href="index.html" class="sb-link">HOME</a>
+        <a href="shop.html" class="sb-link">SHOP COLLECTION</a>
+        <a href="https://wa.me/255684143537" class="sb-link">CONTACT US</a>
+    </div>
+
     <nav>
-        <a href="index.html" class="nav-logo">
-            <img src="logo2.png" alt="TALISM Logo">
-        </a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="https://wa.me/255684143537">Contact</a>
+        <div class="nav-left">
+            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="nav-logo">
+                <img src="logo2.png" alt="TALISM">
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </nav>
 
@@ -141,22 +156,15 @@
                 </a>
             </div>
         </div>
-
-        <div class="card">
-            <img src="accessory.jpg" alt="Accessories" class="product-img">
-            <div class="card-info">
-                <h3>Minimalist Accessories</h3>
-                <span class="price">TZS 45,000</span>
-                <a href="https://wa.me/255684143537?text=Habari%20TALISM,%20nahitaji%20kuona%20Accessories%20zenu." class="wa-order-btn">
-                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
-                </a>
-            </div>
-        </div>
     </div>
 
     <footer>
         &copy; 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.
     </footer>
 
+    <script>
+        function openMenu() { document.getElementById('menu-sb').classList.add('open'); document.getElementById('mask').style.display = 'block'; }
+        function closeMenu() { document.getElementById('menu-sb').classList.remove('open'); document.getElementById('mask').style.display = 'none'; }
+    </script>
 </body>
 </html>
