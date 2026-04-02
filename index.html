@@ -33,7 +33,9 @@
             background: #F4EBEB; z-index: 4000; transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
             padding: 80px 25px; display: flex; flex-direction: column; border: none;
         }
+        /* The .open class allows the CSS transition to work */
         #menu-sb.open { left: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
+        
         .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
 
         /* --- HERO & SECTIONS --- */
@@ -82,8 +84,12 @@
     </div>
 
     <nav>
-        <div class="nav-left"><button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
-        <div class="nav-center"><a href="/" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-left">
+            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="nav-center">
+            <a href="/" class="nav-logo"><img src="logo2.png" alt="TALISM"></a>
+        </div>
         <div class="nav-right">
             <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
@@ -96,7 +102,9 @@
     </div>
 
     <div class="section">
-        <video autoplay loop muted playsinline><source src="stara-video.mp4" type="video/mp4"></video>
+        <video autoplay loop muted playsinline>
+            <source src="stara-video.mp4" type="video/mp4">
+        </video>
         <div class="overlay">
             <h2>Stara Clothing</h2>
             <a href="shop.html" class="shop-btn">SHOP NOW</a>
@@ -144,8 +152,19 @@
     </footer>
 
     <script>
-        function openMenu() { document.getElementById('menu-sb').style.left = '0'; document.getElementById('mask').style.display = 'block'; }
-        function closeMenu() { document.getElementById('menu-sb').style.left = '-100%'; document.getElementById('mask').style.display = 'none'; }
+        const sidebar = document.getElementById('menu-sb');
+        const mask = document.getElementById('mask');
+
+        function openMenu() { 
+            sidebar.classList.add('open'); 
+            mask.style.display = 'block'; 
+        }
+
+        function closeMenu() { 
+            sidebar.classList.remove('open'); 
+            mask.style.display = 'none'; 
+        }
     </script>
 </body>
 </html>
+ 
