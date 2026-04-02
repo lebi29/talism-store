@@ -27,6 +27,21 @@
         .nav-logo img { height: 32px; width: auto; display: block; } 
         .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 5px; }
 
+        /* --- SEARCH BAR DROPDOWN (NEW) --- */
+        #search-dropdown {
+            display: none; position: fixed; top: 75px; left: 0; width: 100%; 
+            background: #F4EBEB; padding: 15px 20px; z-index: 2500; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .search-container {
+            max-width: 1200px; margin: 0 auto; display: flex; align-items: center; 
+            gap: 15px; background: #fff; padding: 10px 15px; border-radius: 8px;
+        }
+        .search-container input {
+            flex: 1; border: none; background: none; font-size: 16px; 
+            outline: none; font-family: 'Inter', sans-serif;
+        }
+
         /* --- SIDEBAR --- */
         #menu-sb { 
             position: fixed; top: 0; left: -100%; width: 280px; height: 100%; 
@@ -63,7 +78,6 @@
         
         .social-icons { display: flex; gap: 20px; margin-top: 15px; }
         .social-icons a { font-size: 24px; color: #000; text-decoration: none; transition: transform 0.2s; }
-        .social-icons a:hover { transform: scale(1.1); }
 
         #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 3500; display: none; }
     </style>
@@ -85,10 +99,18 @@
         <div class="nav-left"><button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
         <div class="nav-center"><a href="/" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
         <div class="nav-right">
-            <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
         </div>
     </nav>
+
+    <div id="search-dropdown">
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass" style="color: #888;"></i>
+            <input type="text" placeholder="Search for perfumes, clothing...">
+            <i class="fa-solid fa-xmark" style="cursor: pointer; color: #888;" onclick="toggleSearch()"></i>
+        </div>
+    </div>
 
     <div class="hero-text">
         <h1>TALISM</h1>
@@ -146,6 +168,15 @@
     <script>
         function openMenu() { document.getElementById('menu-sb').style.left = '0'; document.getElementById('mask').style.display = 'block'; }
         function closeMenu() { document.getElementById('menu-sb').style.left = '-100%'; document.getElementById('mask').style.display = 'none'; }
+        
+        function toggleSearch() {
+            var searchBar = document.getElementById('search-dropdown');
+            if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+                searchBar.style.display = 'block';
+            } else {
+                searchBar.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
