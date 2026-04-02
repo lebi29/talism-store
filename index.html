@@ -25,21 +25,22 @@
         .nav-center { display: flex; justify-content: center; }
         .nav-right { display: flex; justify-content: flex-end; gap: 15px; }
         
-        .nav-logo img { height: 32px; width: auto; display: block; transition: all 0.3s ease; } 
-        .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 5px; transition: all 0.3s ease; }
+        /* THE LOGO FIX: Forced to the pinkish color always */
+        .nav-logo img { 
+            height: 32px; 
+            width: auto; 
+            display: block; 
+            filter: brightness(0) saturate(100%) invert(88%) sepia(13%) saturate(464%) hue-rotate(315deg) brightness(97%) contrast(89%);
+        } 
 
-        /* --- DARK MODE CUSTOMIZATION --- */
-        @media (prefers-color-scheme: dark) {
-            /* 1. Make the search/bag/menu icons the pink color */
-            .icon-btn { 
-                color: #E9CDCE !important; 
-            }
-
-            /* 2. Tint the Logo image to the same pink color using filters */
-            /* sepia + hue-rotate + brightness is used to mimic #E9CDCE */
-            .nav-logo img {
-                filter: brightness(0) saturate(100%) invert(88%) sepia(13%) saturate(464%) hue-rotate(315deg) brightness(97%) contrast(89%);
-            }
+        /* THE ICONS FIX: Forced to the pinkish color always */
+        .icon-btn { 
+            color: #E9CDCE; 
+            font-size: 22px; 
+            cursor: pointer; 
+            background: none; 
+            border: none; 
+            padding: 5px; 
         }
 
         /* --- SIDEBAR --- */
@@ -97,8 +98,12 @@
     </div>
 
     <nav>
-        <div class="nav-left"><button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
-        <div class="nav-center"><a href="/" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-left">
+            <button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="nav-center">
+            <a href="/" class="nav-logo"><img src="logo2.png" alt="TALISM"></a>
+        </div>
         <div class="nav-right">
             <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
@@ -159,8 +164,14 @@
     </footer>
 
     <script>
-        function openMenu() { document.getElementById('menu-sb').classList.add('open'); document.getElementById('mask').style.display = 'block'; }
-        function closeMenu() { document.getElementById('menu-sb').classList.remove('open'); document.getElementById('mask').style.display = 'none'; }
+        function openMenu() { 
+            document.getElementById('menu-sb').classList.add('open'); 
+            document.getElementById('mask').style.display = 'block'; 
+        }
+        function closeMenu() { 
+            document.getElementById('menu-sb').classList.remove('open'); 
+            document.getElementById('mask').style.display = 'none'; 
+        }
     </script>
 </body>
 </html>
