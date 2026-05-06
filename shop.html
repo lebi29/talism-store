@@ -21,6 +21,14 @@
         .nav-right { display: flex; justify-content: flex-end; }
         .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 10px; }
 
+        /* --- SIDEBAR MENU --- */
+        #menu-sb { 
+            position: fixed; top: 0; left: -100%; width: 280px; height: 100%; 
+            background: #F4EBEB; z-index: 4000; transition: 0.4s; padding: 80px 25px; 
+            display: flex; flex-direction: column; 
+        }
+        .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
+
         /* --- SEARCH BAR --- */
         #search-bar {
             position: fixed; top: 75px; left: 0; width: 100%; height: 65px;
@@ -35,10 +43,29 @@
         header { text-align: center; padding: 130px 20px 40px; }
         header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px 60px; }
-        .card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.04); text-align: center; }
-        .product-img { width: 100%; height: 320px; object-fit: cover; }
-        .card-info { padding: 20px; }
-        .wa-order-btn { display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 10px 22px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+        
+        .card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04); 
+            text-align: center;
+            padding: 40px 20px; /* Aliongeza padding baada ya kuondoa picha */
+        }
+        
+        .card-info h3 { margin-top: 0; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+        .wa-order-btn { 
+            display: inline-block; 
+            background-color: #25D366; 
+            color: white; 
+            text-decoration: none; 
+            padding: 12px 25px; 
+            border-radius: 50px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
 
         /* --- FOOTER --- */
         .talism-footer { background-color: #F4EBEB; padding: 60px 10%; text-align: left; color: #000; border-top: 1px solid rgba(0,0,0,0.05); }
@@ -54,7 +81,15 @@
 </head>
 <body>
 
-    <div id="mask" onclick="toggleSearch()"></div>
+    <div id="mask" onclick="closeAll()"></div>
+
+    <div id="menu-sb">
+        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeMenu()">&times;</span>
+        <a href="index.html" class="sb-link">HOME</a>
+        <a href="shop.html" class="sb-link">NEW ARRIVALS</a>
+        <a href="shop.html" class="sb-link">STARA CLOTHING</a>
+        <a href="shop.html" class="sb-link">SIGNATURE SCENTS</a>
+    </div>
 
     <nav>
         <div class="nav-left"><button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
@@ -75,7 +110,6 @@
 
     <div class="grid">
         <div class="card">
-            <img src="stara-image.jpg" alt="Stara Clothing" class="product-img">
             <div class="card-info">
                 <h3>Stara Clothing</h3>
                 <span style="color:#A978C9; font-weight:600; display:block; margin-bottom:15px;">TZS 85,000</span>
@@ -102,17 +136,23 @@
         <div class="footer-col">
             <h4>Follow Us</h4>
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://wa.me/255684143537"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#"><i class="fa-solid fa-tower-broadcast"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/_.talism_perfume" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@_.talism_perfume" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/255684143537" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
         <p class="copyright">© 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
+        function openMenu() { 
+            document.getElementById('menu-sb').style.left = '0'; 
+            document.getElementById('mask').style.display = 'block'; 
+        }
+        function closeMenu() { 
+            document.getElementById('menu-sb').style.left = '-100%'; 
+            document.getElementById('mask').style.display = 'none'; 
+        }
         function toggleSearch() {
             const sb = document.getElementById('search-bar');
             const m = document.getElementById('mask');
@@ -120,6 +160,11 @@
             m.style.display = active ? 'block' : 'none';
             if(active) document.getElementById('search-input').focus();
         }
+        function closeAll() {
+            closeMenu();
+            document.getElementById('search-bar').classList.remove('active');
+        }
     </script>
 </body>
 </html>
+                        
