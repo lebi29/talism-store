@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Perfumes | TALISM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #F4EBEB; color: #333; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: grid; grid-template-columns: 60px 1fr 60px; align-items: center;
+            padding: 0 10px; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
+            background-color: #E9CDCE; height: 75px; 
+        }
+        .nav-center { display: flex; justify-content: center; }
+        .nav-logo img { height: 32px; width: auto; } 
+        .icon-btn { color: #000; font-size: 22px; background: none; border: none; padding: 10px; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+
+        /* --- VIDEO HEADER --- */
+        .perfume-hero {
+            padding-top: 100px;
+            text-align: center;
+        }
+        .video-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .video-container video { width: 100%; display: block; }
+
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 5px; color: #2c2c2c; }
+        header p { font-size: 0.9rem; letter-spacing: 2px; color: #666; text-transform: uppercase; margin-bottom: 30px; }
+
+        /* --- PRODUCT GRID --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 15px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+            text-align: center; 
+            padding-bottom: 20px;
+        }
+
+        .product-img { width: 100%; height: 250px; object-fit: cover; }
+        
+        .product-info { padding: 15px; }
+        .product-info h3 { font-size: 14px; margin: 10px 0 5px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .price { color: #b58d8d; font-weight: 700; font-size: 16px; display: block; margin-bottom: 15px; }
+
+        .order-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- FOOTER --- */
+        .talism-footer { background-color: #E9CDCE; padding: 40px 10%; text-align: center; }
+        .talism-footer p { font-size: 12px; letter-spacing: 1px; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left"><a href="shop.html" class="icon-btn"><i class="fa-solid fa-arrow-left"></i></a></div>
+        <div class="nav-center"><a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-right"><button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+    </nav>
+
+    <div class="perfume-hero">
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="https://raw.githubusercontent.com/lebi29/talism-store/main/Perfume-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <header>
+            <h1>Signature Perfumes</h1>
+            <p>The Essence of Luxury</p>
+        </header>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="Perfume1.jpg" class="product-img">
+            <div class="product-info">
+                <h3>TALISM Oud Wood</h3>
+                <span class="price">85,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji TALISM Oud Wood Perfume" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Perfume2.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Midnight Jasmine</h3>
+                <span class="price">75,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Midnight Jasmine Perfume" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Perfume3.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Rose Gold Essence</h3>
+                <span class="price">90,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Rose Gold Essence Perfume" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Perfume4.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Royal Amber</h3>
+                <span class="price">110,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Royal Amber Perfume" class="order-btn">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="talism-footer">
+        <p>© 2026 TALISM LUXURY STORE. DAR ES SALAAM.</p>
+    </footer>
+
+</body>
+</html>
