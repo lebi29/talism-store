@@ -41,22 +41,52 @@
 
         /* --- SHOP CONTENT --- */
         header { text-align: center; padding: 130px 20px 40px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
-        
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 5px; }
+        header p { font-size: 1rem; color: #555; }
+
+        .collection-section { padding: 0 20px 60px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 25px; 
-            padding: 0 20px 60px; 
         }
         
-        /* FIXED: Card sasa haina background nyeupe wala shadow */
         .card { 
-            background: none; 
-            border-radius: 0; 
+            background: #fff; 
+            border-radius: 15px; 
             overflow: hidden; 
-            box-shadow: none; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        .card-image-placeholder {
+            height: 350px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-image-placeholder i { font-size: 50px; color: #E9CDCE; }
+
+        .card-info { padding: 20px; }
+        .card-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0 0 10px; }
+        
+        .wa-btn { 
+            display: inline-block; 
+            background-color: #25D366; 
+            color: white; 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            margin-top: 10px;
         }
 
         /* --- FOOTER --- */
@@ -100,10 +130,43 @@
         <p>Elegance in every detail.</p>
     </header>
 
-    <div class="grid">
-        <div class="card">
+    <section class="collection-section">
+        <h2 class="section-title">Abayas & Kimonos</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image-placeholder">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Luxury Black Abaya</h3>
+                    <p style="color: #A978C9; font-weight: 600;">TZS 120,000</p>
+                    <a href="https://wa.me/255684143537?text=Habari, nataka kuagiza Luxury Black Abaya" class="wa-btn"><i class="fab fa-whatsapp"></i> Order Now</a>
+                </div>
             </div>
-    </div>
+
+            <div class="card">
+                <div class="card-image-placeholder">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Silk Open Kimono</h3>
+                    <p style="color: #A978C9; font-weight: 600;">TZS 95,000</p>
+                    <a href="https://wa.me/255684143537?text=Habari, nataka kuagiza Silk Open Kimono" class="wa-btn"><i class="fab fa-whatsapp"></i> Order Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image-placeholder">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Embroidered Abaya</h3>
+                    <p style="color: #A978C9; font-weight: 600;">TZS 150,000</p>
+                    <a href="https://wa.me/255684143537?text=Habari, nataka kuagiza Embroidered Abaya" class="wa-btn"><i class="fab fa-whatsapp"></i> Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="talism-footer">
         <div class="footer-col">
