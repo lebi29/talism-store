@@ -28,7 +28,7 @@
         .collection-section { padding: 0 20px 30px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
 
-        /* GRIDI YA BIDHAA (Nguo na Mikoba) */
+        /* GRIDI YA BIDHAA */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -40,41 +40,20 @@
         .img-container-mini { height: 180px; background-color: #eee; border-radius: 12px; overflow: hidden; }
         .img-container-mini img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* SECTION YA PAFYUM (Video Card) */
-        .perfume-card {
-            background-color: #fff;
-            border-radius: 25px;
-            padding: 25px;
-            text-align: center;
-            max-width: 500px;
-            margin: 0 auto 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
-
-        .video-wrapper {
+        /* SECTION YA PERFUME (VIDEO TU) */
+        .video-only-container {
             width: 100%;
+            max-width: 400px; /* Inatunza muundo mzuri wa simu */
+            margin: 0 auto 50px;
             border-radius: 15px;
             overflow: hidden;
-            background: #000;
-            margin-bottom: 20px;
-            aspect-ratio: 9 / 16; /* Inatunza muundo wa wima wa video yako */
+            line-height: 0; /* Huondoa nafasi nyeupe chini ya video */
         }
 
-        .video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .perfume-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
-        .price { font-weight: 600; color: #b58d8d; font-size: 1.3rem; margin-bottom: 20px; display: block; }
-
-        .btn-order {
-            display: inline-block;
-            background-color: #000;
-            color: #fff;
-            padding: 14px 40px;
-            text-decoration: none;
-            border-radius: 35px;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.3s;
+        .video-only-container video {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         @media (max-width: 600px) {
@@ -154,17 +133,11 @@
 
     <section class="collection-section">
         <h2 class="section-title">Signature Perfumes</h2>
-        <div class="perfume-card">
-            <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                    <source src="perfume-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <h3>TALISM Signature Oud</h3>
-            <p>An exquisite blend of luxury scents crafted for royalty.</p>
-            <span class="price">85,000 TZS</span>
-            <a href="https://wa.me/255684143537" class="btn-order">ORDER VIA WHATSAPP</a>
+        <div class="video-only-container">
+            <video autoplay loop muted playsinline>
+                <source src="perfume-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
