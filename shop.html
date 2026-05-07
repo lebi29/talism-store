@@ -28,11 +28,12 @@
         .collection-section { padding: 0 20px 30px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
 
-        /* GRIDI YA PICHA NDOGO */
+        /* GRIDI YA PICHA NDOGO (Kwa ajili ya Nguo na Mikoba) */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 12px; 
+            margin-bottom: 20px;
         }
         
         .card-mini { background: none; border-radius: 12px; overflow: hidden; }
@@ -50,9 +51,47 @@
             object-fit: cover;
         }
 
+        /* SECTION YA PAFYUM (Kadi Kubwa) */
+        .perfume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .perfume-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .perfume-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .perfume-card h3 { font-family: 'Playfair Display', serif; margin: 10px 0 5px; }
+        .price { font-weight: 600; color: #b58d8d; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+
+        .btn-order {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
         /* Responsive kwa simu */
         @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
+            header h1 { font-size: 1.8rem; }
         }
 
         /* --- FOOTER --- */
@@ -101,21 +140,45 @@
     <section class="collection-section">
         <h2 class="section-title">Modest Maxi Dresses</h2>
         <div class="grid-mini">
-            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress1.jpg" alt="Maxi Dress"></div></div>
-            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress2.jpg" alt="Maxi Dress"></div></div>
-            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress3.jpg" alt="Maxi Dress"></div></div>
-            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress4.jpg" alt="Maxi Dress"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress1.jpg" alt="Maxi"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress2.jpg" alt="Maxi"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress3.jpg" alt="Maxi"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress4.jpg" alt="Maxi"></div></div>
         </div>
     </section>
 
     <section class="collection-section">
         <h2 class="section-title">Hijabs, Niqabs & Jilbabs</h2>
         <div class="grid-mini">
-            <div class="card-mini"><div class="img-container-mini"><img src="Hijab1.jpg" alt="Luxury Hijab"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Hijab1.jpg" alt="Hijab"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Niqab1.jpg" alt="Niqab"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Jilbab1.jpg" alt="Jilbab"></div></div>
-            <div class="card-mini"><div class="img-container-mini"><img src="Hijab2.jpg" alt="Khimar"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Hijab2.jpg" alt="Hijab"></div></div>
         </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">Minimalist Handbags</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag1.jpg" alt="Handbag"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag2.jpg" alt="Handbag"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag3.jpg" alt="Handbag"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag4.jpg" alt="Handbag"></div></div>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">Signature Perfumes</h2>
+        <div class="perfume-grid">
+            
+            <div class="perfume-card">
+                <img src="perfume.jpg" alt="Oud Luxury" class="perfume-img">
+                <h3>Oud Luxury Edition</h3>
+                <span class="price">85,000 TZS</span>
+                <a href="https://wa.me/255684143537" class="btn-order">ORDER ON WHATSAPP</a>
+            </div>
+
+            </div>
     </section>
 
     <footer class="talism-footer">
@@ -143,4 +206,3 @@
 
 </body>
 </html>
-
