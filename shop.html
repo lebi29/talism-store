@@ -47,7 +47,7 @@
         .collection-section { padding: 0 20px 40px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
 
-        /* REKEBISHO: Gridi kwa ajili ya picha ndogo nne kwenye mstari mmoja */
+        /* MKUSANYIKO WA PICHA NDOGO (Grid ya nne kwenye mstari) */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -58,21 +58,23 @@
             background: none; 
             border-radius: 12px; 
             overflow: hidden; 
-            text-align: center;
         }
 
-        .img-placeholder-mini {
-            height: 180px; /* Size iliyopunguzwa */
+        .img-container-mini {
+            height: 180px; 
             background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: 12px;
+            overflow: hidden;
         }
-        .img-placeholder-mini i { font-size: 30px; color: #E9CDCE; }
 
-        /* Responsive kwa simu ndogo sana */
-        @media (max-width: 480px) {
+        .img-container-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive kwa simu (Inaonyesha mbili kwa mstari badala ya nne) */
+        @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -120,29 +122,31 @@
     <section class="collection-section">
         <h2 class="section-title">Abayas & Kimonos</h2>
         <div class="grid-mini">
+            
             <div class="card-mini">
-                <div class="img-placeholder-mini">
-                    <i class="fa-solid fa-shirt"></i>
+                <div class="img-container-mini">
+                    <img src="Abaya1.jpg" alt="Abaya Collection">
                 </div>
             </div>
 
             <div class="card-mini">
-                <div class="img-placeholder-mini">
-                    <i class="fa-solid fa-shirt"></i>
+                <div class="img-container-mini">
+                    <img src="Abaya2.jpg" alt="Abaya Collection">
                 </div>
             </div>
 
             <div class="card-mini">
-                <div class="img-placeholder-mini">
-                    <i class="fa-solid fa-shirt"></i>
+                <div class="img-container-mini">
+                    <img src="Kimonos1.jpg" alt="Kimono Collection">
                 </div>
             </div>
 
             <div class="card-mini">
-                <div class="img-placeholder-mini">
-                    <i class="fa-solid fa-shirt"></i>
+                <div class="img-container-mini">
+                    <img src="Kimonos2.jpg" alt="Kimono Collection">
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -195,3 +199,4 @@
     </script>
 </body>
 </html>
+
