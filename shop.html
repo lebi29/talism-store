@@ -51,40 +51,45 @@
             object-fit: cover;
         }
 
-        /* SECTION YA PAFYUM (Kadi Kubwa) */
-        .perfume-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .perfume-card {
+        /* SECTION YA PAFYUM (Video Section) */
+        .perfume-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: #fff;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .perfume-img {
+        .video-wrapper {
             width: 100%;
-            height: 250px;
-            object-fit: contain;
-            margin-bottom: 15px;
+            max-width: 350px; /* Inafaa vizuri kwa video ya wima */
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #000;
         }
 
-        .perfume-card h3 { font-family: 'Playfair Display', serif; margin: 10px 0 5px; }
-        .price { font-weight: 600; color: #b58d8d; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        .perfume-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 10px 0; }
+        .price { font-weight: 600; color: #b58d8d; font-size: 1.2rem; margin-bottom: 20px; display: block; }
 
         .btn-order {
             display: inline-block;
             background-color: #000;
             color: #fff;
-            padding: 10px 25px;
+            padding: 12px 35px;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 13px;
+            border-radius: 30px;
+            font-size: 14px;
             letter-spacing: 1px;
+            font-weight: 600;
             transition: 0.3s;
         }
 
@@ -92,6 +97,7 @@
         @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
             header h1 { font-size: 1.8rem; }
+            .video-wrapper { max-width: 100%; }
         }
 
         /* --- FOOTER --- */
@@ -169,16 +175,20 @@
 
     <section class="collection-section">
         <h2 class="section-title">Signature Perfumes</h2>
-        <div class="perfume-grid">
-            
-            <div class="perfume-card">
-                <img src="perfume.jpg" alt="Oud Luxury" class="perfume-img">
-                <h3>Oud Luxury Edition</h3>
+        <div class="perfume-container">
+            <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                    <source src="perfume-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="perfume-info">
+                <h3>TALISM Signature Oud</h3>
+                <p>An exquisite blend of luxury scents crafted for royalty.</p>
                 <span class="price">85,000 TZS</span>
-                <a href="https://wa.me/255684143537" class="btn-order">ORDER ON WHATSAPP</a>
+                <a href="https://wa.me/255684143537" class="btn-order">ORDER VIA WHATSAPP</a>
             </div>
-
-            </div>
+        </div>
     </section>
 
     <footer class="talism-footer">
