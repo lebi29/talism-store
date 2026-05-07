@@ -42,29 +42,21 @@
         /* --- SHOP CONTENT --- */
         header { text-align: center; padding: 130px 20px 40px; }
         header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px 60px; }
         
-        .card { 
-            background: #fff; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04); 
-            text-align: center;
-            padding: 40px 20px; /* Aliongeza padding baada ya kuondoa picha */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            padding: 0 20px 60px; 
         }
         
-        .card-info h3 { margin-top: 0; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
-        .wa-order-btn { 
-            display: inline-block; 
-            background-color: #25D366; 
-            color: white; 
-            text-decoration: none; 
-            padding: 12px 25px; 
-            border-radius: 50px; 
-            font-size: 11px; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
+        /* FIXED: Card sasa haina background nyeupe wala shadow */
+        .card { 
+            background: none; 
+            border-radius: 0; 
+            overflow: hidden; 
+            box-shadow: none; 
+            text-align: center;
         }
 
         /* --- FOOTER --- */
@@ -110,12 +102,7 @@
 
     <div class="grid">
         <div class="card">
-            <div class="card-info">
-                <h3>Stara Clothing</h3>
-                <span style="color:#A978C9; font-weight:600; display:block; margin-bottom:15px;">TZS 85,000</span>
-                <a href="https://wa.me/255684143537" class="wa-order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
             </div>
-        </div>
     </div>
 
     <footer class="talism-footer">
@@ -167,4 +154,3 @@
     </script>
 </body>
 </html>
-                        
