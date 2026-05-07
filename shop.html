@@ -18,26 +18,7 @@
         }
         .nav-center { display: flex; justify-content: center; }
         .nav-logo img { height: 32px; width: auto; } 
-        .nav-right { display: flex; justify-content: flex-end; }
         .icon-btn { color: #000; font-size: 22px; cursor: pointer; background: none; border: none; padding: 10px; }
-
-        /* --- SIDEBAR MENU --- */
-        #menu-sb { 
-            position: fixed; top: 0; left: -100%; width: 280px; height: 100%; 
-            background: #F4EBEB; z-index: 4000; transition: 0.4s; padding: 80px 25px; 
-            display: flex; flex-direction: column; 
-        }
-        .sb-link { display: block; text-decoration: none; color: #000; font-size: 13px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 500; }
-
-        /* --- SEARCH BAR --- */
-        #search-bar {
-            position: fixed; top: 75px; left: 0; width: 100%; height: 65px;
-            background: #fff; z-index: 2500; display: none; align-items: center; 
-            padding: 0 20px; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        #search-bar.active { display: flex; animation: slideDown 0.3s ease-out; }
-        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        #search-bar input { flex: 1; border: none; outline: none; font-size: 16px; padding: 10px; }
 
         /* --- SHOP CONTENT --- */
         header { text-align: center; padding: 130px 20px 40px; }
@@ -47,18 +28,14 @@
         .collection-section { padding: 0 20px 30px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
 
-        /* GRIDI KWA AJILI YA PICHA NDOGO */
+        /* GRIDI YA PICHA NDOGO */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 12px; 
         }
         
-        .card-mini { 
-            background: none; 
-            border-radius: 12px; 
-            overflow: hidden; 
-        }
+        .card-mini { background: none; border-radius: 12px; overflow: hidden; }
 
         .img-container-mini {
             height: 180px; 
@@ -73,7 +50,7 @@
             object-fit: cover;
         }
 
-        /* Responsive kwa simu ndogo */
+        /* Responsive kwa simu */
         @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
         }
@@ -86,33 +63,15 @@
         .social-icons { display: flex; gap: 20px; margin-top: 15px; }
         .social-icons a { font-size: 22px; color: #000; }
         .copyright { font-size: 10px; margin-top: 40px; opacity: 0.4; text-align: center; width: 100%; letter-spacing: 1px; }
-
-        #mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2000; display: none; }
     </style>
 </head>
 <body>
 
-    <div id="mask" onclick="closeAll()"></div>
-
-    <div id="menu-sb">
-        <span style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;" onclick="closeMenu()">&times;</span>
-        <a href="index.html" class="sb-link">HOME</a>
-        <a href="shop.html" class="sb-link">NEW ARRIVALS</a>
-        <a href="shop.html" class="sb-link">STARA CLOTHING</a>
-        <a href="shop.html" class="sb-link">SIGNATURE SCENTS</a>
-    </div>
-
     <nav>
-        <div class="nav-left"><button class="icon-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button></div>
+        <div class="nav-left"><button class="icon-btn"><i class="fa-solid fa-bars"></i></button></div>
         <div class="nav-center"><a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
-        <div class="nav-right"><button class="icon-btn" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+        <div class="nav-right"><button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button></div>
     </nav>
-
-    <div id="search-bar">
-        <i class="fa-solid fa-magnifying-glass" style="color: #999;"></i>
-        <input type="text" placeholder="Search for perfumes, clothing..." id="search-input">
-        <span onclick="toggleSearch()" style="cursor:pointer; font-size: 20px;">&times;</span>
-    </div>
 
     <header>
         <h1>Our Collection</h1>
@@ -139,6 +98,16 @@
         </div>
     </section>
 
+    <section class="collection-section">
+        <h2 class="section-title">Modest Maxi Dresses</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress1.jpg" alt="Maxi Dress"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress2.jpg" alt="Maxi Dress"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress3.jpg" alt="Maxi Dress"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress4.jpg" alt="Maxi Dress"></div></div>
+        </div>
+    </section>
+
     <footer class="talism-footer">
         <div class="footer-col">
             <h4>Information</h4>
@@ -148,42 +117,20 @@
         </div>
         <div class="footer-col">
             <h4>Get In Touch</h4>
-            <p>Email: talismstore@gmail.com</p>
             <p>WhatsApp: +255 684 143 537</p>
             <p>Location: Dar es Salaam, Tanzania</p>
         </div>
         <div class="footer-col">
             <h4>Follow Us</h4>
             <div class="social-icons">
-                <a href="https://www.instagram.com/_.talism_perfume" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@_.talism_perfume" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://wa.me/255684143537" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
         <p class="copyright">© 2026 TALISM LUXURY STORE. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <script>
-        function openMenu() { 
-            document.getElementById('menu-sb').style.left = '0'; 
-            document.getElementById('mask').style.display = 'block'; 
-        }
-        function closeMenu() { 
-            document.getElementById('menu-sb').style.left = '-100%'; 
-            document.getElementById('mask').style.display = 'none'; 
-        }
-        function toggleSearch() {
-            const sb = document.getElementById('search-bar');
-            const m = document.getElementById('mask');
-            const active = sb.classList.toggle('active');
-            m.style.display = active ? 'block' : 'none';
-            if(active) document.getElementById('search-input').focus();
-        }
-        function closeAll() {
-            closeMenu();
-            document.getElementById('search-bar').classList.remove('active');
-        }
-    </script>
 </body>
 </html>
 
