@@ -44,10 +44,10 @@
         header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 5px; }
         header p { font-size: 1rem; color: #555; }
 
-        .collection-section { padding: 0 20px 40px; max-width: 1200px; margin: 0 auto; }
+        .collection-section { padding: 0 20px 30px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
 
-        /* MKUSANYIKO WA PICHA NDOGO (Grid ya nne kwenye mstari) */
+        /* GRIDI KWA AJILI YA PICHA NDOGO */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -73,7 +73,7 @@
             object-fit: cover;
         }
 
-        /* Responsive kwa simu (Inaonyesha mbili kwa mstari badala ya nne) */
+        /* Responsive kwa simu ndogo */
         @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
         }
@@ -122,31 +122,20 @@
     <section class="collection-section">
         <h2 class="section-title">Abayas & Kimonos</h2>
         <div class="grid-mini">
-            
-            <div class="card-mini">
-                <div class="img-container-mini">
-                    <img src="Abaya1.jpg" alt="Abaya Collection">
-                </div>
-            </div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Abaya1.jpg" alt="Abaya"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Abaya2.jpg" alt="Abaya"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Kimonos1.jpg" alt="Kimono"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Kimonos2.jpg" alt="Kimono"></div></div>
+        </div>
+    </section>
 
-            <div class="card-mini">
-                <div class="img-container-mini">
-                    <img src="Abaya2.jpg" alt="Abaya Collection">
-                </div>
-            </div>
-
-            <div class="card-mini">
-                <div class="img-container-mini">
-                    <img src="Kimonos1.jpg" alt="Kimono Collection">
-                </div>
-            </div>
-
-            <div class="card-mini">
-                <div class="img-container-mini">
-                    <img src="Kimonos2.jpg" alt="Kimono Collection">
-                </div>
-            </div>
-
+    <section class="collection-section">
+        <h2 class="section-title">Elegant Kaftans</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan1.jpg" alt="Kaftan"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan2.jpg" alt="Kaftan"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan3.jpg" alt="Kaftan"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan4.jpg" alt="Kaftan"></div></div>
         </div>
     </section>
 
@@ -157,14 +146,12 @@
             <a href="#">About Us</a>
             <a href="#">Customer Care</a>
         </div>
-        
         <div class="footer-col">
             <h4>Get In Touch</h4>
             <p>Email: talismstore@gmail.com</p>
             <p>WhatsApp: +255 684 143 537</p>
             <p>Location: Dar es Salaam, Tanzania</p>
         </div>
-        
         <div class="footer-col">
             <h4>Follow Us</h4>
             <div class="social-icons">
