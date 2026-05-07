@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hijabs & Niqabs | TALISM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #F4EBEB; color: #333; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: grid; grid-template-columns: 60px 1fr 60px; align-items: center;
+            padding: 0 10px; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
+            background-color: #E9CDCE; height: 75px; 
+        }
+        .nav-center { display: flex; justify-content: center; }
+        .nav-logo img { height: 32px; width: auto; } 
+        .icon-btn { color: #000; font-size: 22px; background: none; border: none; padding: 10px; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+
+        /* --- CONTENT HEADER --- */
+        header { text-align: center; padding: 130px 20px 40px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 5px; color: #2c2c2c; }
+        header p { font-size: 0.9rem; letter-spacing: 1px; color: #666; text-transform: uppercase; }
+
+        /* --- PRODUCT GRID --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 15px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+            text-align: center; 
+            padding-bottom: 15px;
+            transition: 0.3s transform ease;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+
+        .product-img { width: 100%; height: 280px; object-fit: cover; }
+        
+        .product-info { padding: 12px; }
+        .product-info h3 { font-size: 13px; margin: 10px 0 5px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .price { color: #b58d8d; font-weight: 700; font-size: 16px; display: block; margin-bottom: 12px; }
+
+        .order-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .order-btn:hover { background-color: #333; }
+
+        /* --- FOOTER --- */
+        .talism-footer { background-color: #E9CDCE; padding: 40px 10%; text-align: center; margin-top: 20px; }
+        .talism-footer p { font-size: 12px; letter-spacing: 1px; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left"><a href="shop.html" class="icon-btn"><i class="fa-solid fa-arrow-left"></i></a></div>
+        <div class="nav-center"><a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-right"><button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+    </nav>
+
+    <header>
+        <h1>Hijabs & Niqabs</h1>
+        <p>Pure Modesty & Divine Comfort</p>
+    </header>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="Hijab1.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Premium Chiffon Hijab</h3>
+                <span class="price">25,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Premium Chiffon Hijab" class="order-btn">Order via WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Niqab1.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Soft Breathable Niqab</h3>
+                <span class="price">35,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Soft Breathable Niqab" class="order-btn">Order via WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Jilbab1.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Classic Full Jilbab</h3>
+                <span class="price">65,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Classic Full Jilbab" class="order-btn">Order via WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Hijab2.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Jersey Essential Hijab</h3>
+                <span class="price">20,000 TZS</span>
+                <a href="https://wa.me/255684143537?text=Habari, nahitaji Jersey Essential Hijab" class="order-btn">Order via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="talism-footer">
+        <p>© 2026 TALISM LUXURY. DAR ES SALAAM.</p>
+    </footer>
+
+</body>
+</html>
