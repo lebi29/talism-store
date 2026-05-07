@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abayas & Kimonos | TALISM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #F4EBEB; color: #333; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: grid; grid-template-columns: 60px 1fr 60px; align-items: center;
+            padding: 0 10px; position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
+            background-color: #E9CDCE; height: 75px; 
+        }
+        .nav-center { display: flex; justify-content: center; }
+        .nav-logo img { height: 32px; width: auto; } 
+        .icon-btn { color: #000; font-size: 22px; background: none; border: none; padding: 10px; cursor: pointer; }
+
+        /* --- CONTENT --- */
+        header { text-align: center; padding: 130px 20px 40px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 5px; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mbili kwa kila mstari kwenye simu */
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 15px; }
+        .product-img { width: 100%; height: 250px; object-fit: cover; }
+        
+        .product-info { padding: 10px; }
+        .product-info h3 { font-size: 14px; margin: 10px 0 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .price { color: #8a6d6d; font-weight: 600; font-size: 15px; }
+
+        .order-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER --- */
+        .talism-footer { background-color: #F4EBEB; padding: 40px 10%; border-top: 1px solid rgba(0,0,0,0.05); margin-top: 50px; }
+        .footer-col h4 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .footer-col p { font-size: 13px; color: #333; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left"><a href="shop.html" class="icon-btn"><i class="fa-solid fa-arrow-left"></i></a></div>
+        <div class="nav-center"><a href="index.html" class="nav-logo"><img src="logo2.png" alt="TALISM"></a></div>
+        <div class="nav-right"><button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+    </nav>
+
+    <header>
+        <h1>Abayas & Kimonos</h1>
+        <p>Timeless elegance for the modern woman.</p>
+    </header>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="Abaya1.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Luxury Black Abaya</h3>
+                <p class="price">120,000 TZS</p>
+                <a href="https://wa.me/255684143537" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="Abaya2.jpg" class="product-img">
+            <div class="product-info">
+                <h3>Golden Trim Kimono</h3>
+                <p class="price">135,000 TZS</p>
+                <a href="https://wa.me/255684143537" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        </div>
+
+    <footer class="talism-footer">
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p>WhatsApp: +255 684 143 537</p>
+            <p>Dar es Salaam, Tanzania</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
