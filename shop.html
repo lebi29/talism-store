@@ -28,7 +28,7 @@
         .collection-section { padding: 0 20px 30px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
 
-        /* GRIDI YA BIDHAA */
+        /* GRIDI YA BIDHAA (Nguo na Mikoba) */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -37,21 +37,10 @@
         }
         
         .card-mini { background: none; border-radius: 12px; overflow: hidden; }
+        .img-container-mini { height: 180px; background-color: #eee; border-radius: 12px; overflow: hidden; }
+        .img-container-mini img { width: 100%; height: 100%; object-fit: cover; }
 
-        .img-container-mini {
-            height: 180px; 
-            background-color: #eee;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .img-container-mini img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* SECTION YA PAFYUM (Kadi Moja Kubwa yenye Video) */
+        /* SECTION YA PAFYUM (Video Card) */
         .perfume-card {
             background-color: #fff;
             border-radius: 25px;
@@ -68,18 +57,11 @@
             overflow: hidden;
             background: #000;
             margin-bottom: 20px;
-            aspect-ratio: 16 / 9; /* Inarekebisha kulingana na video yako */
+            aspect-ratio: 9 / 16; /* Inatunza muundo wa wima wa video yako */
         }
 
-        .video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
+        .video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
         .perfume-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
-        .perfume-card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; line-height: 1.5; }
         .price { font-weight: 600; color: #b58d8d; font-size: 1.3rem; margin-bottom: 20px; display: block; }
 
         .btn-order {
@@ -95,7 +77,6 @@
             transition: 0.3s;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
             header h1 { font-size: 1.8rem; }
@@ -120,6 +101,56 @@
         <h1>Our Collection</h1>
         <p>Elegance in every detail.</p>
     </header>
+
+    <section class="collection-section">
+        <h2 class="section-title">Abayas & Kimonos</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Abaya1.jpg" alt="Abaya"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Abaya2.jpg" alt="Abaya"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Kimonos1.jpg" alt="Kimono"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Kimonos2.jpg" alt="Kimono"></div></div>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">Elegant Kaftans</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan1.jpg" alt="Kaftan"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan2.jpg" alt="Kaftan"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan3.jpg" alt="Kaftan"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Khaftan4.jpg" alt="Kaftan"></div></div>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">Modest Maxi Dresses</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress1.jpg" alt="Maxi"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress2.jpg" alt="Maxi"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress3.jpg" alt="Maxi"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress4.jpg" alt="Maxi"></div></div>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">Hijabs, Niqabs & Jilbabs</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Hijab1.jpg" alt="Hijab"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Niqab1.jpg" alt="Niqab"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Jilbab1.jpg" alt="Jilbab"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Hijab2.jpg" alt="Hijab"></div></div>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">Minimalist Handbags</h2>
+        <div class="grid-mini">
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag1.jpg" alt="Handbag"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag2.jpg" alt="Handbag"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag3.jpg" alt="Handbag"></div></div>
+            <div class="card-mini"><div class="img-container-mini"><img src="Handbag4.jpg" alt="Handbag"></div></div>
+        </div>
+    </section>
 
     <section class="collection-section">
         <h2 class="section-title">Signature Perfumes</h2>
@@ -154,4 +185,3 @@
 
 </body>
 </html>
-
