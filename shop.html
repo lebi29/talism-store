@@ -25,43 +25,58 @@
         header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 5px; }
         header p { font-size: 1rem; color: #555; }
 
-        .collection-section { padding: 0 20px 30px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; }
+        .collection-section { padding: 0 20px 60px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; text-align: left; }
 
         /* GRIDI YA BIDHAA */
         .grid-mini { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 12px; 
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         .card-mini { background: none; border-radius: 12px; overflow: hidden; }
         .img-container-mini { height: 180px; background-color: #eee; border-radius: 12px; overflow: hidden; }
         .img-container-mini img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- PERFUME VIDEO SECTION (ONLY VIDEO) --- */
+        /* --- KITUFE CHA VIEW ALL --- */
+        .view-all-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid #000;
+            color: #000;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px; /* Inaleta muonekano wa luxury */
+            text-transform: uppercase;
+            transition: 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .view-all-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* PERFUME VIDEO */
         .video-full-display {
             width: 100%;
-            max-width: 450px; /* Inatunza muundo mzuri wa simu */
-            margin: 0 auto 50px;
+            max-width: 450px;
+            margin: 0 auto 30px;
             border-radius: 20px;
             overflow: hidden;
             background-color: #000;
             line-height: 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
-        .video-full-display video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .video-full-display video { width: 100%; height: auto; display: block; }
 
         @media (max-width: 600px) {
             .grid-mini { grid-template-columns: repeat(2, 1fr); }
             header h1 { font-size: 1.8rem; }
-            .video-full-display { max-width: 100%; border-radius: 15px; }
+            .view-all-btn { width: 80%; } /* Inakaa vizuri zaidi kwenye simu */
         }
 
         /* --- FOOTER --- */
@@ -92,6 +107,7 @@
             <div class="card-mini"><div class="img-container-mini"><img src="Kimonos1.jpg" alt="Kimono"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Kimonos2.jpg" alt="Kimono"></div></div>
         </div>
+        <a href="abaya-kimonos.html" class="view-all-btn">VIEW ALL</a>
     </section>
 
     <section class="collection-section">
@@ -102,6 +118,7 @@
             <div class="card-mini"><div class="img-container-mini"><img src="Khaftan3.jpg" alt="Kaftan"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Khaftan4.jpg" alt="Kaftan"></div></div>
         </div>
+        <a href="kaftans.html" class="view-all-btn">VIEW ALL</a>
     </section>
 
     <section class="collection-section">
@@ -112,6 +129,7 @@
             <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress3.jpg" alt="Maxi"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Modestmaxidress4.jpg" alt="Maxi"></div></div>
         </div>
+        <a href="maxi-dresses.html" class="view-all-btn">VIEW ALL</a>
     </section>
 
     <section class="collection-section">
@@ -122,6 +140,7 @@
             <div class="card-mini"><div class="img-container-mini"><img src="Jilbab1.jpg" alt="Jilbab"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Hijab2.jpg" alt="Hijab"></div></div>
         </div>
+        <a href="hijabs.html" class="view-all-btn">VIEW ALL</a>
     </section>
 
     <section class="collection-section">
@@ -132,6 +151,7 @@
             <div class="card-mini"><div class="img-container-mini"><img src="Handbag3.jpg" alt="Handbag"></div></div>
             <div class="card-mini"><div class="img-container-mini"><img src="Handbag4.jpg" alt="Handbag"></div></div>
         </div>
+        <a href="handbags.html" class="view-all-btn">VIEW ALL</a>
     </section>
 
     <section class="collection-section">
@@ -139,9 +159,9 @@
         <div class="video-full-display">
             <video autoplay loop muted playsinline>
                 <source src="https://raw.githubusercontent.com/lebi29/talism-store/main/Perfume-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
             </video>
         </div>
+        <a href="perfumes.html" class="view-all-btn">VIEW ALL</a>
     </section>
 
     <footer class="talism-footer">
